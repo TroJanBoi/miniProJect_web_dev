@@ -36,5 +36,4 @@
     -   Desktop
     -   Mobile
 
-## Use Database
-$${\color{red}Red}$$
+## $${\color{Use Database}Red}$$
