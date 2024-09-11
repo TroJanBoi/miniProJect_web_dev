@@ -14,7 +14,7 @@
 -   **Post page** หน้าสำหรับรายละเอียดกิจกรรม
 	- ชื่อกิจกรรม
 		- จำนวนคนเข้าร่วม
-			- Limit participant ( Time-stamp
+			- Limit participant ( Time-stamp )
 				- Non-limit participants
 		-   เงื่อนไข
 		-   วัน/เวลาของกิจกรรม
