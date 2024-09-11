@@ -1,4 +1,4 @@
-# $${\color{Orange}WEB APPLICATION DEVELOPMENT}$$
+# WEB APPLICATION DEVELOPMENT 
 
 
 
@@ -36,4 +36,4 @@
     -   Desktop
     -   Mobile
 
-## $${\color{red}Use Database}$$
+## Use Database
