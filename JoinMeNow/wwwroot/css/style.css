@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #dedede;
+    overflow: hidden;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+.mt-4 {
+    margin-top: 4px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;     
+    box-sizing: border-box;
+}
+
+.login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.card-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 750px;
+    height: max-content;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card-login-header {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.card-login-header p {
+    margin-top: -25px;
+}
+.card-login-body {
+    display: flex;
+    flex-direction: column;
+}
+.card-login-sub-body {
+    display: flex;
+    justify-content: space-around;
+    font-size: small;
+    margin-top:15px;
+}
+.login-input {
+    width: 75%;
+    line-height: 35px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: large;
+    margin-top: 30px;
+}
+
+.card-login-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-login-1 {
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #365486;
+    color: white;
+    font-size: medium;    
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+.btn-login-1:hover {
+    background-color: #446192;
+    cursor: pointer;
+}
+
+.btn-login-2 i {
+    font-size: 18px;
+}
+
+.btn-login-2 {
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #d1d1d1;
+    font-size: medium;    
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+.btn-login-2:hover {
+    background-color: #dfdfdf;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: scroll;
+    }
+    .card-login {
+        width: 90%;
+    }
+    .login-input {
+        width: 90%;
+    }
+}
