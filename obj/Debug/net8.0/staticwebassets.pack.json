@@ -1,12 +1,24 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\img\\dashboard.png",
+      "PackagePath": "staticwebassets\\img\\dashboard.png"
+    },
+    {
+      "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\js\\dashboard.js",
+      "PackagePath": "staticwebassets\\js\\dashboard.js"
     },
     {
       "Id": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\js\\site.js",
