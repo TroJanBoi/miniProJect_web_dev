@@ -51,7 +51,6 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin-bottom: 1rem;
-  position: relative;
 }
 
 .nav-dash::-webkit-scrollbar {
@@ -59,7 +58,7 @@ body {
 }
 
 .nav-item {
-  display: inline-flex;
+  display: inline-block;
   border-bottom: 10px solid #365486;
 }
 
@@ -67,10 +66,10 @@ body {
   background-color: var(--card-background);
   color: var(--text-color);
   border: none;
-  width: 24vh;
-  padding: 10px;
+  width: 167px;
+  padding: 0.5rem 1rem;
   font-family: var(--font-family);
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -164,9 +163,7 @@ body {
   }
   
   .nav-item button {
-    font-size: 14px;
-    min-width: 100px;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
   
   .content-dashboard {
@@ -197,8 +194,7 @@ body {
   }
   
   .nav-item button {
-    font-size: 12px;
-    min-width: 80px;
+    font-size: 0.7rem;
     padding: 0.3rem 0.6rem;
   }
   
