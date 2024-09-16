@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JoinMeNow - Backup")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c0d675699c5eb3a5bc87153ef54f16ffc87932d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1c045c646531f83819aad5b67800d34cf159fd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("JoinMeNow - Backup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JoinMeNow - Backup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
