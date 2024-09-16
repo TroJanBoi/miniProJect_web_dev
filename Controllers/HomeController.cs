@@ -14,7 +14,10 @@ public class HomeController : Controller
         ViewBag.Username = username;
         return View();
     }
-
+    public IActionResult Test()
+    {
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
