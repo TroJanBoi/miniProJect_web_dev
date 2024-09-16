@@ -4,5 +4,6 @@
 
 /JoinMeNow.csproj
 obj/
+bin/Debug/
 .vs/
 
