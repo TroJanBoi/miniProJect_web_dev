@@ -1,0 +1,55 @@
+﻿@model JoinMeNow.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register Page";
+
+}
+
+<div class="container">
+    <div class="register-page centered">
+        <div class="card-register">
+            <div class="card-register-header">
+                <h1>Registration Join Me Now</h1>
+                <p>Fill out the form carefully for registration</p>
+            </div>
+
+            <div class="card-register-body">
+                <form asp-action="Register" method="post">
+                    <div class="card-register-sub-body">
+                        <label>Full Name</label>
+                        <input type="text" asp-for="FullName" class="register-input" placeholder="Full Name" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="card-register-sub-body">
+                        <a>Username</a>
+                        <input type="text" name="Username" class="register-input" placeholder="Username">
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="card-register-sub-body">
+                        <a>Email</a>
+                        <input type="email" name="Email" class="register-input" placeholder="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="card-register-sub-body">
+                        <a>Password</a>
+                        <input type="password" name="Password" class="register-input" placeholder="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+       
+                    <div class="card-register-footer">
+                        <div class="mt-20">
+                            <button class="btn-register-cancel" asp-controller = "Dashboard" asp-action = "Index">cancel</button>
+                        </div>
+
+                        <div class="mt-20">
+                            <button type="submit" class="btn-register">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
