@@ -2,52 +2,52 @@
     ViewData["Title"] = "Login Page";
 }
 
-
-
-<div class="container">
-    <div class="login-page centered">
-        <div class="card-login">
-            <div class="card-login-header">
-                <h1>Welcome back!</h1>
-                <p>please enter your details</p>
-            </div>
-            <div class="card-login-body">
-                <form asp-action="Login" method="post">
-                    <div>
-                        <input type="email" name="email" class="login-input" placeholder="Email" required>
-                        <input type="password" name="password" class="login-input" placeholder="Password" required>
-                    </div>
-
-                    @if (ViewBag.ErrorMessage != null)
-                    {
-                        <div class="login-alert">
-                            @ViewBag.ErrorMessage
-                        </div>
-                    }
-
-                    <div class="card-login-sub-body">
+<section class="home-section">
+    <div class="container">
+        <div class="login-page centered">
+            <div class="card-login">
+                <div class="card-login-header">
+                    <h1>Welcome back!</h1>
+                    <p>please enter your details</p>
+                </div>
+                <div class="card-login-body">
+                    <form asp-action="Login" method="post">
                         <div>
-                            <input type="checkbox" name="rememberMe"> Remember for 30 days
+                            <input type="email" name="email" class="login-input" placeholder="Email" required>
+                            <input type="password" name="password" class="login-input" placeholder="Password" required>
                         </div>
-                        <div>
-                            <a href="#" style="text-decoration: none;">forgot password ?</a>
+
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="login-alert">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+
+                        <div class="card-login-sub-body">
+                            <div>
+                                <input type="checkbox" name="rememberMe"> Remember for 30 days
+                            </div>
+                            <div>
+                                <a href="#" style="text-decoration: none;">forgot password ?</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-login-footer">
-                        <div class="mt-20">
-                            <button class="btn-login-1" type="submit">Login</button>
+                        <div class="card-login-footer">
+                            <div class="mt-20">
+                                <button class="btn-login-1" type="submit">Login</button>
+                            </div>
+                            <div class="mt-10">
+                                <button class="btn-login-2"><i class="fab fa-google"></i> Login with Google</button>
+                            </div>
+                            <div class="mt-20">
+                                <p>Don't have an account?<a style="text-decoration: none;" asp-controller="Register" asp-action="Index">Sign Up</a></p>
+                            </div>
                         </div>
-                        <div class="mt-10">
-                            <button class="btn-login-2"><i class="fab fa-google"></i> Login with Google</button>
-                        </div>
-                        <div class="mt-20">
-                            <p>Don't have an account?<a style="text-decoration: none;" asp-controller="Register" asp-action="Index">Sign Up</a></p>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 

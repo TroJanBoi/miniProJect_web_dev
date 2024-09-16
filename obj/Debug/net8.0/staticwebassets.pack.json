@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\img\\dashboard.png",
+      "PackagePath": "staticwebassets\\img\\dashboard.png"
+    },
+    {
+      "Id": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\js\\dashboard.js",
+      "PackagePath": "staticwebassets\\js\\dashboard.js"
+    },
+    {
+      "Id": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\js\\mypost.js",
+      "PackagePath": "staticwebassets\\js\\mypost.js"
+    },
+    {
+      "Id": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\js\\sidebar.js",
+      "PackagePath": "staticwebassets\\js\\sidebar.js"
+    },
+    {
       "Id": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
