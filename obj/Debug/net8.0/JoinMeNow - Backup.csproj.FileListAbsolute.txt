@@ -1,0 +1,36 @@
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\appsettings.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.staticwebassets.runtime.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.exe
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.deps.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.runtimeconfig.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\JoinMeNow - Backup.pdb
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.csproj.AssemblyReference.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.AssemblyInfoInputs.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.AssemblyInfo.cs
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.csproj.CoreCompileInputs.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.RazorAssemblyInfo.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.RazorAssemblyInfo.cs
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.sourcelink.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets\msbuild.JoinMeNow - Backup.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets\msbuild.build.JoinMeNow - Backup.props
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.JoinMeNow - Backup.props
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.JoinMeNow - Backup.props
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\scopedcss\bundle\JoinMeNow - Backup.styles.css
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNo.4F5C98F9.Up2Date
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\refint\JoinMeNow - Backup.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.pdb
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\JoinMeNow - Backup.genruntimeconfig.cache
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\obj\Debug\net8.0\ref\JoinMeNow - Backup.dll
