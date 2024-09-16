@@ -6,41 +6,40 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "JoinMeNow/1.0.0": {
+      "JoinMeNow - Backup/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.8",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.2"
         },
         "runtime": {
-          "JoinMeNow.dll": {}
+          "JoinMeNow - Backup.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/8.0.8": {
+      "Microsoft.EntityFrameworkCore/8.0.2": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8",
-          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.8",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.2",
+          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.2",
           "Microsoft.Extensions.Caching.Memory": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "8.0.8.0",
-            "fileVersion": "8.0.824.36704"
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.224.6803"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.2": {
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "8.0.8.0",
-            "fileVersion": "8.0.824.36704"
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.224.6803"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/8.0.8": {},
+      "Microsoft.EntityFrameworkCore.Analyzers/8.0.2": {},
       "Microsoft.EntityFrameworkCore.Relational/8.0.2": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         },
         "runtime": {
@@ -120,31 +119,31 @@
     }
   },
   "libraries": {
-    "JoinMeNow/1.0.0": {
+    "JoinMeNow - Backup/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.EntityFrameworkCore/8.0.8": {
+    "Microsoft.EntityFrameworkCore/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iK+jrJzkfbIxutB7or808BPmJtjUEi5O+eSM7cLDwsyde6+3iOujCSfWnrHrLxY3u+EQrJD+aD8DJ6ogPA2Rtw==",
-      "path": "microsoft.entityframeworkcore/8.0.8",
-      "hashPath": "microsoft.entityframeworkcore.8.0.8.nupkg.sha512"
+      "sha512": "sha512-6QlvBx4rdawW3AkkCsGVV+8qRLk34aknV5JD40s1hbVR18vKmT2KDl2DW83nHcPX7f4oebQ3BD1UMNCI/gkE0g==",
+      "path": "microsoft.entityframeworkcore/8.0.2",
+      "hashPath": "microsoft.entityframeworkcore.8.0.2.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9mMQkZsfL1c2iifBD8MWRmwy59rvsVtR9NOezJj7+g1j4P7g49MJHd8k8faC/v7d5KuHkQ6KOQiSItvoRt9PXA==",
-      "path": "microsoft.entityframeworkcore.abstractions/8.0.8",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
+      "sha512": "sha512-DjDKp++BTKFZmX+xLTow7grQTY+pImKfhGW68Zf8myiL3zyJ3b8RZbnLsWGNCqKQIF6hJIz/zA/zmERobFwV0A==",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.2",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/8.0.8": {
+    "Microsoft.EntityFrameworkCore.Analyzers/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OlAXMU+VQgLz5y5/SBkLvAa9VeiR3dlJqgIebEEH2M2NGA3evm68/Tv7SLWmSxwnEAtA3nmDEZF2pacK6eXh4Q==",
-      "path": "microsoft.entityframeworkcore.analyzers/8.0.8",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.8.nupkg.sha512"
+      "sha512": "sha512-LI7awhc0fiAKvcUemsqxXUWqzAH9ywTSyM1rpC1un4p5SE1bhr5nRLvyRVbKRzKakmnNNY3to8NPDnoySEkxVw==",
+      "path": "microsoft.entityframeworkcore.analyzers/8.0.2",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.2.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/8.0.2": {
       "type": "package",
