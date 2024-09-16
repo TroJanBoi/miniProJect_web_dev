@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "2ta8QOX1IH84SB5wbulY32O1FIJJurLZNWg+qRvhDD4=",
+=======
+  "Hash": "DlpUrpbFiM/yVEh8LNN+7k1kStOeF2KwBCKEi1m7Cjo=",
+>>>>>>> origin/chick
   "Source": "JoinMeNow",
   "BasePath": "_content/JoinMeNow",
   "Mode": "Default",
@@ -10,17 +14,17 @@
     {
       "Name": "JoinMeNow\\wwwroot",
       "Source": "JoinMeNow",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\css\\style.css",
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\css\\style.css",
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -36,10 +40,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\favicon.ico",
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\favicon.ico",
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -55,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\js\\site.js",
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\js\\site.js",
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -74,6 +78,7 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
@@ -1104,6 +1109,12 @@
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+=======
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+>>>>>>> origin/chick
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1119,10 +1130,14 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+=======
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+>>>>>>> origin/chick
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1138,10 +1153,14 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+=======
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+>>>>>>> origin/chick
       "SourceId": "JoinMeNow",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\wwwroot\\",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
       "BasePath": "_content/JoinMeNow",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1154,6 +1173,180 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
+=======
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation/LICENSE.md",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Identity": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "JoinMeNow",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\wwwroot\\",
+      "BasePath": "_content/JoinMeNow",
+      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+>>>>>>> origin/chick
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     }
   ]
