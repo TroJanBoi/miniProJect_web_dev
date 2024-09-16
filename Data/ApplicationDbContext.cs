@@ -11,5 +11,7 @@ namespace JoinMeNow.Data
         }
 
         public DbSet<User> users { get; set; }
+        public DbSet<PostParticipant> postparticipants { get; set; }
+        public DbSet<Post> posts { get; set; }
     }
 }

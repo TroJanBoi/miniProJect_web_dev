@@ -1,105 +1,9 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
     var userEmail = ViewBag.UserEmail as string;
     var username = ViewBag.Username as string;
 }
-
-<div class="sidebar close">
-    <div class="Menu-btn">
-        <i class='bx bx-chevrons-right'></i>
-        <span class="text"></span>
-    </div>
-
-
-
-    <ul class="nav-links">
-        @if (userEmail != null)
-        {
-            <li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <i class='bx bxs-user-circle'></i>
-                    </div>
-                    <div class="name-job">
-                        <div class="profile_name">Hello, @username</div>
-                        <div class="job">@userEmail</div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="logout">
-                    <a asp-controller="Login" asp-action="Logout">
-                        <i class='bx bx-log-out'></i>
-                        <span class="link_name">Logout</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li><a asp-controller="Login" asp-action="Logout" class="link_name">Logout</a></li>
-                    </ul>
-                </div>
-            </li>
-        }
-        else
-        {
-            <li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <i class='bx bxs-user-circle'></i>
-                    </div>
-                    <div class="name-job">
-                        <div class="profile_name">Hello, guest!</div>
-                    </div>
-
-                </div>
-            </li>
-        }
-
-        <hr>
-        <p>Menu</p>
-        <li>
-            <a href="#">
-                <i class='bx bx-category'></i>
-                <span class="link_name">Dashboard</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Dashboard</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#">
-                <i class='bx bx-calendar-star'></i>
-                <span class="link_name">Meet Up</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Meet Up</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#">
-                <i class='bx bxs-edit'></i>
-                <span class="link_name">My Post</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">My Post</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#">
-                <i class='bx bx-time-five'></i>
-                <span class="link_name">History</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">History</a></li>
-            </ul>
-        </li>
-        <hr>
-
-
-    </ul>
-</div>
+@await Html.PartialAsync("Sidebar")
 
 <section class="home-section">
     <div class="text-center">
@@ -119,19 +23,3 @@
         }
     </div>
 </section>
-
-<script>
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-        arrow[i].addEventListener("click", (e) => {
-            let arrowParent = e.target.parentElement.parentElement;
-            arrowParent.classList.toggle("showMenu");
-        });
-    }
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-chevrons-right");
-    console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    });
-</script>
