@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<<<<<<< HEAD
 	<PropertyGroup>
 		<ActiveDebugProfile>http</ActiveDebugProfile>
 		<ActiveDebugProfile>https</ActiveDebugProfile>
@@ -11,4 +12,20 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
 	</PropertyGroup>
+=======
+  <PropertyGroup>
+<<<<<<< HEAD
+    <ActiveDebugProfile>http</ActiveDebugProfile>
+=======
+    <ActiveDebugProfile>https</ActiveDebugProfile>
+    <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
+    <Controller_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</Controller_SelectedScaffolderCategoryPath>
+    <View_SelectedScaffolderID>RazorViewEmptyScaffolder</View_SelectedScaffolderID>
+    <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
+>>>>>>> origin/chick
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+>>>>>>> 3d72f5fdd5b14e3661d5f24f8d6861a031989d18
 </Project>

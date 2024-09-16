@@ -4,5 +4,10 @@
 
 /JoinMeNow.csproj
 obj/
+<<<<<<< HEAD
 bin/Debug/
 .vs/
+=======
+.vs/
+
+>>>>>>> 3d72f5fdd5b14e3661d5f24f8d6861a031989d18
