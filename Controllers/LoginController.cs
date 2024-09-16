@@ -29,7 +29,12 @@ public class LoginController : Controller
         {
             HttpContext.Session.SetString("UserEmail", user.Email);
             HttpContext.Session.SetString("Username", user.Username);
-            return RedirectToAction("Index", "Home");
+            HttpContext.Session.SetString("UserID", user.UserID.ToString());
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var username = HttpContext.Session.GetString("Username");
+            ViewBag.UserEmail = userEmail;
+            ViewBag.Username = username;
+            return RedirectToAction("Index", "Dashboard");
         }
         else
         {
@@ -42,7 +47,8 @@ public class LoginController : Controller
     {
         HttpContext.Session.Remove("UserEmail");
         HttpContext.Session.Remove("Username");
-        return RedirectToAction("Index", "Home");
+        HttpContext.Session.Remove("UserID");
+        return RedirectToAction("Index", "Dashboard");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
