@@ -43,8 +43,8 @@ app.UseSession(); // Enable session middleware
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
-
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}"
+);
 app.Run();
 
 
