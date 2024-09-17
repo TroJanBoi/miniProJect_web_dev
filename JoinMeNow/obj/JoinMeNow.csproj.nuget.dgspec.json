@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Year2-1\\WEB\\JoinMeNow\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj": {}
+    "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj": {}
   },
   "projects": {
-    "D:\\Year2-1\\WEB\\JoinMeNow\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj": {
+    "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Year2-1\\WEB\\JoinMeNow\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj",
+        "projectUniqueName": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj",
         "projectName": "JoinMeNow",
-        "projectPath": "D:\\Year2-1\\WEB\\JoinMeNow\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj",
-        "packagesPath": "C:\\Users\\tarho\\.nuget\\packages\\",
-        "outputPath": "D:\\Year2-1\\WEB\\JoinMeNow\\JoinMeNow\\JoinMeNow\\obj\\",
+        "projectPath": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj",
+        "packagesPath": "C:\\Users\\pesrisaw\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tarho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pesrisaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
