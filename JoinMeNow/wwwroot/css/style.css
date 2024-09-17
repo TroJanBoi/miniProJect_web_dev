@@ -653,6 +653,8 @@ body {
     -ms-overflow-style: none;
     margin-bottom: 1rem;
     position: relative;
+    display:flex;
+    justify-content:flex-start;
 }
 
     .nav-dash::-webkit-scrollbar {
@@ -660,7 +662,9 @@ body {
     }
 
 .nav-item {
-    display: inline-flex;
+    display: flex;
+    flex-wrap:nowrap;
+    width:100%;
     border-bottom: 10px solid #365486;
 }
 
@@ -674,6 +678,9 @@ body {
         font-size: 20px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
+        flex: 1 0 auto;
+        white-space:nowrap;
+        min-width:max-content;
     }
 
         .nav-item button.active {

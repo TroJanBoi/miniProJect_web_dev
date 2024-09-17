@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JoinMeNow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de1101b23066541fa027393a145891bde6db8d99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c989af3745ebd2d6daec1919b7c76a858392dc13")]
 [assembly: System.Reflection.AssemblyProductAttribute("JoinMeNow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JoinMeNow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
