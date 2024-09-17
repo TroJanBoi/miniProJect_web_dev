@@ -21,25 +21,51 @@ function showWeek(startDate) {
     const dateNav = document.getElementById("navItem");
     dateNav.innerHTML = "";
 
+    function addDateClick(date, isActive = false, prepend = false) {
+        const dateItem = document.createElement("button");
+        dateItem.className = isActive ? "active" : "";
+        dateItem.textContent = formatData(date);
+        dateItem.setAttribute('data-date', date.toISOString());
+
+        dateItem.addEventListener("click", handlerDateClick);
+
+        if (prepend) {
+            dateNav.prepend(dateItem);
+        } else {
+            dateNav.appendChild(dateItem);
+        }
+    }
+    function handlerDateClick(e) {
+        document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        const selectedDate = new Date(e.target.getAttribute('data-date'));
+        loadDashboardData(selectedDate);
+
+        if (e.target === dateNav.lastElementChild) {
+            const nextDate = new Date(selectedDate);
+            nextDate.setDate(selectedDate.getDate() + 1);
+            addDateClick(nextDate);
+
+            if (dateNav.children.length > 8) {
+                dateNav.removeChild(dateNav.firstElementChild);
+            }
+        } else if (e.target === dateNav.firstElementChild) {
+            const prevDate = new Date(selectedDate);
+            prevDate.setDate(selectedDate.getDate() - 1);
+            addDateClick(prevDate, false, true);
+
+            if (dateNav.children.length > 8) {
+                dateNav.removeChild(dateNav.lastElementChild);
+            }
+        }
+    }
+
     for (let i = 0; i < 8; i++) {
         let newDate = new Date(startDate);
         newDate.setDate(startDate.getDate() + i);
-        const dateItem = document.createElement("button");
-        dateItem.className = i === 0 ? "active" : "";
-        dateItem.textContent = formatData(newDate);
-        dateItem.setAttribute('data-date', newDate.toISOString());
-
-        dateItem.addEventListener("click", (e) => {
-            document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-            const selectedDate = new Date(e.target.getAttribute('data-date'));
-            loadDashboardData(selectedDate);
-        });
-
-        dateNav.appendChild(dateItem);
+        addDateClick(newDate, i === 0);
     }
 }
-
 
 function displayDateData(postData ,selectedDate) {
     const contentDashboard = document.getElementById("contentDashboard");
