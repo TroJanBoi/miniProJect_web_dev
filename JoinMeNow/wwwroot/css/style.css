@@ -652,6 +652,7 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
     margin-bottom: 1rem;
+    position: relative;
 }
 
     .nav-dash::-webkit-scrollbar {
@@ -659,7 +660,7 @@ body {
     }
 
 .nav-item {
-    display: inline-block;
+    display: inline-flex;
     border-bottom: 10px solid #365486;
 }
 
@@ -667,7 +668,7 @@ body {
         background-color: var(--card-background);
         color: var(--text-color);
         border: none;
-        width: 167px;
+        width: 25.4vh;
         padding: 0.5rem 1rem;
         font-family: var(--font-family2);
         font-size: 20px;
@@ -681,8 +682,8 @@ body {
         }
 
 .content-dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display:flex;
+    justify-content:flex-start;
     gap: 1rem;
 }
 
@@ -936,9 +937,20 @@ button:hover {
         font-size: 1rem;
     }
 
+    .content-dashboard {
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+    }
+
+    .card-dashboard {
+        width:90%
+    }
+
     .nav-item button {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
+        height: 5vh;
     }
 
     .card-dashboard-content {
