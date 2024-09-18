@@ -689,8 +689,9 @@ body {
         }
 
 .content-dashboard {
-    display:flex;
-    justify-content:flex-start;
+    display:grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
