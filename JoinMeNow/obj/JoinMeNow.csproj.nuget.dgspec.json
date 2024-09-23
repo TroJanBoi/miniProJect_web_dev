@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj": {}
+    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj": {}
   },
   "projects": {
-    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj": {
+    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj",
+        "projectUniqueName": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj",
         "projectName": "JoinMeNow",
-        "projectPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj",
+        "projectPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj",
         "packagesPath": "C:\\Users\\naron\\.nuget\\packages\\",
-        "outputPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\obj\\",
+        "outputPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\naron\\AppData\\Roaming\\NuGet\\NuGet.Config",

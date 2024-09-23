@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aig+U19Z5Ak=",
+  "dgSpecHash": "6RmbvKs12eg=",
   "success": true,
-  "projectFilePath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\JoinMeNow\\JoinMeNow\\JoinMeNow.csproj",
+  "projectFilePath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\naron\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\naron\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
