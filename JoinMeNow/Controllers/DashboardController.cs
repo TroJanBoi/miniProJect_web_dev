@@ -132,7 +132,8 @@ namespace JoinMeNow.Controllers
                 var newParticipant =
                     new PostParticipant {
                         PostID = request.PostID,
-                        UserID = parsedUserId
+                        UserID = parsedUserId,
+                        status = "pending"
                     };
 
                 _context.postparticipants.Add (newParticipant);

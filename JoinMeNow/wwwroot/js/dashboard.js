@@ -128,7 +128,7 @@ async function sendParticipationData(postID) {
         if (data.success) {
             return "Joined";
         } else {
-            alert("User not logged in.")
+            alert("User not logged in....")
             //console.log('Error:', data.message);
             return "Error";
         }
