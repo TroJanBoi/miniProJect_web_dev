@@ -298,3 +298,8 @@ D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow\obj\
 D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow\obj\Debug\net8.0\JoinMeNow.pdb
 D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow\obj\Debug\net8.0\JoinMeNow.genruntimeconfig.cache
 D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow\obj\Debug\net8.0\ref\JoinMeNow.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
