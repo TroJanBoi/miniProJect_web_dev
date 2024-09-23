@@ -81,14 +81,17 @@ function displayDateData(postData ,selectedDate) {
         const buttonText = item.status === 'Joined' ? 'Joined' : 'Join';
 
         card.innerHTML = `
-            <h3 class='card-dashboard-topic'>${item.title}</h3>
-            <div class='card-dashboard-content'>
-                <p class='font-13'>${formatData(selectedDate)}</p>
-                <p class='font-13'>${formatTime(item.startTime)} - ${formatTime(item.endTime)}</p>
-                <p class='font-12'>${item.maxParticipants} Participants</p>
+           <img src="${item.img}">
+            <div class="card-dashboard-text">
+                <div class='card-dashboard-content'>
+                    <p class='font-13'>${formatData(selectedDate)}</p>
+                    <p class='font-13'>${formatTime(item.startTime)} - ${formatTime(item.endTime)}</p>
+                    <p class='font-12'>${item.maxParticipants} Participants</p>
+                </div>
+                <h3 class='card-dashboard-topic'>${item.title}</h3>
+
+                <p class='font-12'>${item.description}</p>
             </div>
-            <p class='font-12'>${item.description}</p>
-            
             <div class='card-dashboard-footer'>
                 <button class='btn-dashboard ${buttonClass}' data-status=${item.status} ${buttonDisabled} data-post-id='${item.postID}'>${buttonText}</button>
             </div>
