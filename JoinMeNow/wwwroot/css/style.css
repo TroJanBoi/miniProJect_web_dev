@@ -279,7 +279,6 @@ body {
 }
 
 .text-danger {
-    margin-top: 20px;
     color: red;
 }
 
@@ -652,12 +651,12 @@ body {
 }
 
 
-.sidebar .Menu-btn .bx-chevrons-right {
-    transform: rotate(180deg);
-    color: #365486;
-    font-size: 35px;
-    transition: all 0.5s ease;
-}
+    .sidebar .Menu-btn .bx-chevrons-right {
+        transform: rotate(180deg);
+        color: #365486;
+        font-size: 35px;
+        transition: all 0.5s ease;
+    }
 
 .sidebar.close .Menu-btn .bx-chevrons-right,
 .sidebar.close .Menu-btn .text {
@@ -771,15 +770,14 @@ body {
 }
 
 .card-dashboard {
-  background-color: var(--card-background);
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 90%;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  
+    background-color: var(--card-background);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 90%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .card-dashboard-text {
@@ -804,51 +802,51 @@ body {
     height: 100%;
 }
 
-    .card-dashboard-topic { 
-        font-size: 1.125rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+.card-dashboard-topic {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-dashboard-content {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.card-dashboard-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-description {
+    display: flex;
+}
+
+.btn-dashboard {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+    .btn-dashboard:hover {
+        background-color: #2a4368;
     }
 
-    .card-dashboard-content {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
+    .btn-dashboard.active {
+        background-color: #4caf50;
     }
-
-    .card-dashboard-footer {
-        margin-top: auto;
-        padding-top: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .dashboard-description {
-        display:flex;
-        
-    }
-
-    .btn-dashboard {
-        background-color: var(--primary-color);
-        color: var(--card-background);
-        border: none;
-        padding: 0.5rem 1rem;
-        font-family: var(--font-family);
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-        width: 100%;
-        max-width: 200px;
-    }
-            .btn-dashboard:hover {
-                background-color: #2a4368;
-            }
-
-            .btn-dashboard.active {
-                background-color: #4caf50;
-            }
 
 .active {
     background-color: #4caf50;
@@ -935,6 +933,45 @@ body {
     padding-left: 1rem;
 }
 
+
+    .participants-name label span {
+        text-align: center;
+        width: 50px;
+        font-size: small;
+        margin-right: .6rem;
+        padding: .3rem .8rem .3rem .8rem;
+        border-radius: 10px;
+    }
+
+    .participants-name label .pending::before {
+        content: "Pending";
+    }
+
+    .participants-name label .pending {
+        content: "Pending";
+        background-color: lightgray;
+        color: dimgray;
+    }
+
+    .participants-name label .joined::before {
+        content: " Joined ";
+    }
+
+    .participants-name label .joined {
+        background-color: lightgreen;
+        color: darkslategray;
+    }
+
+    .participants-name label .denied::before {
+        content: " Denied ";
+    }
+
+    .participants-name label .denied {
+        background-color: lightcoral;
+        color: darkred;
+    }
+
+
 .dropdown-content.active {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -942,7 +979,7 @@ body {
 
 .dropdown-content label {
     display: block;
-    margin: 5px;
+    margin: 10px;
 }
 
 .button-container {

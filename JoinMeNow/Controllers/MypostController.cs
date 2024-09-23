@@ -52,7 +52,8 @@ namespace JoinMeNow.Controllers
                             .Select(pp => new ParticipantDto
                             {
                                 UserID = pp.UserID,
-                                Username = _context.users.FirstOrDefault(u => u.UserID == pp.UserID).Username
+                                Username = _context.users.FirstOrDefault(u => u.UserID == pp.UserID).Username,
+                                Status = pp.status,
                             })
                             .ToList()
                     })
@@ -100,6 +101,43 @@ namespace JoinMeNow.Controllers
             }
 
             return Ok(new { success = true, user });
+        }
+
+        [HttpPost]
+        public IActionResult UpdateStatus([FromBody] UpdateStatusRequest request)
+        {
+
+            try
+            {
+
+                foreach (var participantId in request.Participants)
+                {
+                    var participant = _context.postparticipants
+                        .FirstOrDefault(p => p.UserID == int.Parse(participantId) && p.PostID == request.PostId);
+
+                    if (participant != null)
+                    {
+                        participant.status = request.Status;
+
+                    }
+                }
+                _context.SaveChanges();
+
+                var participantsBeforeUpdate = _context.postparticipants
+                    .Where(p => p.PostID == request.PostId)
+                    .Select(p => new ParticipantDto
+                    {
+                        UserID = p.UserID,
+                        Username = _context.users.FirstOrDefault(u => u.UserID == p.UserID).Username,
+                        Status = p.status,
+                    }).ToList();
+
+                return Ok(new { success = true , participants = participantsBeforeUpdate });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An error occurred while updating the status.", error = ex.Message });
+            }
         }
     }
 }

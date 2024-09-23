@@ -36,12 +36,12 @@ namespace JoinMeNow.Controllers
 
                 _context.users.Add(user);
                 await _context.SaveChangesAsync();
-
-                return RedirectToAction("Index", "Home");
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetString("UserID", user.UserID.ToString());
+                return RedirectToAction("Index", "Dashboard");
             }
-
-
-            return RedirectToAction("Index", "Login");
+            return View(model);
         }
     }
 }

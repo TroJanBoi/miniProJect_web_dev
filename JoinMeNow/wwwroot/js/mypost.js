@@ -22,28 +22,6 @@ connection.start().catch(function (err) {
     return console.error(err.toString());
 });
 
-function joinMe(form) {
-    var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            var label = checkbox.parentElement;
-            label.innerHTML = label.textContent.trim() + " - Joined Me";
-        }
-    });
-}
-function denyParticipants(form) {
-    var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            checkbox.parentElement.remove();
-        }
-    });
-}
-function removeEvent(button) {
-    var eventContainer = button.closest('.event');
-    eventContainer.remove();
-}
-
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -75,7 +53,7 @@ async function updateParticipant(userID, postID) {
 
 function selectAllParticipants(dropdownId) {
     const dropdownContent = document.getElementById(dropdownId);
-    const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]:not([disabled])');
     const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
     checkboxes.forEach(function (checkbox) {
         checkbox.checked = !allChecked;
@@ -83,6 +61,60 @@ function selectAllParticipants(dropdownId) {
     console.log(dropdownId, allChecked ? "Unselecting all" : "Selecting all");
 }
 
+function updateParticipantsStatus(form, postId,status) {
+    const selectedParticipants = [];
+    form.querySelectorAll('input[name="participants"]:checked').forEach(participant => {
+        selectedParticipants.push(participant.value);
+    });
+    if (selectedParticipants.length > 0) {
+        updateStatus(postId, selectedParticipants, status)
+            .then(response => response.ok ? response.json() : Promise.reject("Failed to update participants status."))
+            .then(data => renderParticipants(data.participants, form))
+            .catch(console.error);
+    } else {
+        alert("Please select at least one participant.");
+    }
+}
+
+function renderParticipants(participants, form) {
+    console.log(participants)
+    if (!form) {
+        console.error("Participants container not found");
+        return;
+    }
+
+    form.innerHTML = '';
+    if (participants.length === 0) {
+        form.innerHTML = '<p>No participants available.</p>';
+        return;
+    }
+
+    const pendingParticipants = participants.filter(p => p.status === 'pending');
+    const joinedParticipants = participants.filter(p => p.status === 'joined');
+    const deniedParticipants = participants.filter(p => p.status === 'denied');
+
+    pendingParticipants.forEach(p => {
+        const label = document.createElement('label');
+        label.innerHTML = `
+            <span class="${p.status}"></span><input type="checkbox" name="participants" value="${p.userID}"> ${p.username} <span class="status"></span>
+        `;
+        form.appendChild(label);
+    });
+    joinedParticipants.forEach(p => {
+        const label = document.createElement('label');
+        label.innerHTML = `
+           <span class="${p.status}"></span><input type="checkbox" name="participants" value="${p.userID}" disabled="true"> ${p.username} <span class="status"></span>
+        `;
+        form.appendChild(label);
+    });
+    deniedParticipants.forEach(p => {
+        const label = document.createElement('label');
+        label.innerHTML = `
+            <span class="${p.status}"></span><input type="checkbox" name="participants" value="${p.userID}" disabled="true"> ${p.username} <span class="status"></span>
+        `;
+        form.appendChild(label);
+    });
+}
 
 function displayPosts(posts) {
     const postsContainer = document.querySelector('.event-list');
@@ -107,24 +139,23 @@ function displayPosts(posts) {
                     <div onclick="toggleDropdown('${dropdownId}')" class="dropdown-button">Participant will join &#9662;</div>
                     <button type="button" class="button-remove" onclick="removeEvent(this)">Cancel Post</button>
                 </div>
-                <div id="${dropdownId}" class="dropdown-content">
+                <div id="${dropdownId}" class="dropdown-content" dropdown-post-id="">
                     <div class="participants-name">
                         <form>
-                            ${post.participants.map(p => `
-                                <label><input type="checkbox" name="participants" value="${p.userID}"> ${p.username} <span class="status"></span></label>
-                            `).join('')}
                         </form>
                     </div>
                     <div class="button-container">
                         <button type="button" class="button-select-all" onclick="selectAllParticipants('${dropdownId}')">Select All</button>
-                        <button type="button" class="button-join" onclick="joinMe(this.form)">Join Me</button>
-                        <button type="button" class="button-deny" onclick="denyParticipants(this.form)">Deny</button>
+                        <button type="button" class="button-join" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'),${post.postID},'joined' )">Join Me</button>
+                        <button type="button" class="button-deny" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'),${post.postID},'denied')">Deny</button>
                     </div>
                 </div>
             </div>
         `;
 
         postsContainer.appendChild(postElement);
+        form = document.querySelector(`#${dropdownId} form`)
+        renderParticipants(post.participants, form);
     });
 }
 
@@ -163,7 +194,7 @@ async function fetchUserPosts() {
         });
 
         if (!response.ok) throw new Error('Network response was not ok.');
-        const data = await response.json(); 
+        const data = await response.json();
         const reversedPosts = [...data].reverse();
         return reversedPosts;
 
@@ -171,4 +202,19 @@ async function fetchUserPosts() {
         console.error('Error in fetchPosts:', error);
         throw error;
     }
+}
+
+function updateStatus(postId, selectedParticipants, status) {
+    console.log(postId, selectedParticipants, status);
+    return fetch('/Mypost/UpdateStatus', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            PostId: postId,
+            Participants: selectedParticipants,
+            Status: status
+        })
+    });
 }
