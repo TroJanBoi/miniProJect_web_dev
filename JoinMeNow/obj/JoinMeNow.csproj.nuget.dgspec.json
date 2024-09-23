@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj": {}
+    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj": {
+    "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj",
+        "projectUniqueName": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj",
         "projectName": "JoinMeNow",
-        "projectPath": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\JoinMeNow.csproj",
-        "packagesPath": "C:\\Users\\pesrisaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pesrisaw\\Documents\\GitHub\\miniProJect_web_dev\\JoinMeNow\\obj\\",
+        "projectPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\JoinMeNow.csproj",
+        "packagesPath": "C:\\Users\\naron\\.nuget\\packages\\",
+        "outputPath": "D:\\A Bachelor Degrees\\WEB APPLICATION DEVELOPMENT\\miniProJect_web\\JoinMeNow\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pesrisaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\naron\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

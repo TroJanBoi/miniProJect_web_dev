@@ -9,71 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JoinMeNow
 build_property.RootNamespace = JoinMeNow
-build_property.ProjectDir = C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow\
+build_property.ProjectDir = D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\pesrisaw\Documents\GitHub\miniProJect_web_dev\JoinMeNow
+build_property.MSBuildProjectDirectory = D:\A Bachelor Degrees\WEB APPLICATION DEVELOPMENT\miniProJect_web\JoinMeNow
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Dashboard/index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Dashboard/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/History/index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/History/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Home/Index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Home/Privacy.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Login/Index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Meetup/index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Meetup/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVldHVwXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Mypost/index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Mypost/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlwb3N0XGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Post/index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Post/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Register/Index.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Register/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Shared/Error.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Shared/Sidebar.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Shared/Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNpZGViYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/_ViewImports.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/_ViewStart.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pesrisaw/Documents/GitHub/miniProJect_web_dev/JoinMeNow/Views/Shared/_Layout.cshtml]
+[D:/A Bachelor Degrees/WEB APPLICATION DEVELOPMENT/miniProJect_web/JoinMeNow/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1x9yonmxoi
