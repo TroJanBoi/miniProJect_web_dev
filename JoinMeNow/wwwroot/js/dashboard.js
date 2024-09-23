@@ -31,26 +31,56 @@ function formatToDateString(date) {
 function formatTime(timeString) {
     return timeString.split(':').slice(0, 2).join(':');
 }
+
 function showWeek(startDate) {
     const dateNav = document.getElementById("navItem");
-    dateNav.innerHTML = "";
+    dateNav.innerHTML = '';
 
-    for (let i = 0; i < 8; i++) {
+    function addDateButton(date, isActive = false, prepend = false) {
+        const dateItem = document.createElement("button");
+        dateItem.className = isActive ? "active" : "";
+        dateItem.textContent = formatData(date);
+        dateItem.setAttribute('data-date', date.toISOString());
+
+        dateItem.addEventListener("click", handleDateClick);
+
+        if (prepend) {
+            dateNav.prepend(dateItem);
+        } else {
+            dateNav.appendChild(dateItem);
+        }
+    }
+
+    function handleDateClick(e) {
+        document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        const clickedDate = new Date(e.target.getAttribute('data-date'));
+        displayDateData(clickedDate);
+
+        if (e.target === dateNav.lastElementChild) {
+
+            const nextDate = new Date(clickedDate);
+            nextDate.setDate(clickedDate.getDate() + 1);
+            addDateButton(nextDate);
+
+            if (dateNav.children.length > 7) {
+                dateNav.removeChild(dateNav.firstElementChild);
+            }
+        } else if (e.target === dateNav.firstElementChild) {
+            const prevDate = new Date(clickedDate);
+            prevDate.setDate(clickedDate.getDate() - 1);
+            addDateButton(prevDate, false, true);
+        
+            if (dateNav.children.length > 7) {
+                dateNav.removeChild(dateNav.lastElementChild);
+            }
+        }
+    }
+
+    for (let i = 0; i < 7; i++) {
         let newDate = new Date(startDate);
         newDate.setDate(startDate.getDate() + i);
-        const dateItem = document.createElement("button");
-        dateItem.className = i === 0 ? "active" : "";
-        dateItem.textContent = formatData(newDate);
-        dateItem.setAttribute('data-date', newDate.toISOString());
-
-        dateItem.addEventListener("click", (e) => {
-            document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-            selectedDate = new Date(e.target.getAttribute('data-date'));
-            loadDashboardData(selectedDate);
-        });
-
-        dateNav.appendChild(dateItem);
+        addDateButton(newDate, i === 0);
     }
 }
 
