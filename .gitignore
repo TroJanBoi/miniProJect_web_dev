@@ -1,0 +1,14 @@
+# Ignore Visual Studio files
+.vs/
+
+# Ignore build output directories
+JoinMeNow/bin/
+JoinMeNow/obj/
+
+# Ignore other potential temp files
+*.suo
+*.user
+*.cache
+*.pdb
+*.dll
+*.exe

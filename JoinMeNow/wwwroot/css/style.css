@@ -1403,10 +1403,6 @@ button:hover {
 }
 
 @media (min-width: 1700px) {
-    .content-dashboard {
-        grid-template-columns: repeat(5, 1fr); /* 6 คอลัมน์ */
-    }
-
     .create-post-container .form {
         width: 50%;
     }
