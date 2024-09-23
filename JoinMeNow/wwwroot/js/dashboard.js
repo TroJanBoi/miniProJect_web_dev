@@ -1,21 +1,7 @@
 
+//Dashboard ############################## 
 let currentDate = new Date();
 let currentFilter = 'all';
-let selectedDate;
-
-selectedDate = new Date();
-
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/postHub")
-    .build();
-connection.on("updatePosts", function () {
-    console.log("update Dashboard")
-    loadDashboardData(selectedDate);
-});
-
-connection.start().catch(function (err) {
-    return console.error(err.toString());
-});
 
 function formatData(date) {
     return date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
@@ -31,18 +17,17 @@ function formatToDateString(date) {
 function formatTime(timeString) {
     return timeString.split(':').slice(0, 2).join(':');
 }
-
 function showWeek(startDate) {
     const dateNav = document.getElementById("navItem");
-    dateNav.innerHTML = '';
+    dateNav.innerHTML = "";
 
-    function addDateButton(date, isActive = false, prepend = false) {
+    function addDateClick(date, isActive = false, prepend = false) {
         const dateItem = document.createElement("button");
         dateItem.className = isActive ? "active" : "";
         dateItem.textContent = formatData(date);
         dateItem.setAttribute('data-date', date.toISOString());
 
-        dateItem.addEventListener("click", handleDateClick);
+        dateItem.addEventListener("click", handlerDateClick);
 
         if (prepend) {
             dateNav.prepend(dateItem);
@@ -50,42 +35,39 @@ function showWeek(startDate) {
             dateNav.appendChild(dateItem);
         }
     }
-
-    function handleDateClick(e) {
+    function handlerDateClick(e) {
         document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
-        const clickedDate = new Date(e.target.getAttribute('data-date'));
-        displayDateData(clickedDate);
+        const selectedDate = new Date(e.target.getAttribute('data-date'));
+        loadDashboardData(selectedDate);
 
         if (e.target === dateNav.lastElementChild) {
+            const nextDate = new Date(selectedDate);
+            nextDate.setDate(selectedDate.getDate() + 1);
+            addDateClick(nextDate);
 
-            const nextDate = new Date(clickedDate);
-            nextDate.setDate(clickedDate.getDate() + 1);
-            addDateButton(nextDate);
-
-            if (dateNav.children.length > 7) {
+            if (dateNav.children.length > 8) {
                 dateNav.removeChild(dateNav.firstElementChild);
             }
         } else if (e.target === dateNav.firstElementChild) {
-            const prevDate = new Date(clickedDate);
-            prevDate.setDate(clickedDate.getDate() - 1);
-            addDateButton(prevDate, false, true);
-        
-            if (dateNav.children.length > 7) {
+            const prevDate = new Date(selectedDate);
+            prevDate.setDate(selectedDate.getDate() - 1);
+            addDateClick(prevDate, false, true);
+
+            if (dateNav.children.length > 8) {
                 dateNav.removeChild(dateNav.lastElementChild);
             }
         }
     }
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
         let newDate = new Date(startDate);
         newDate.setDate(startDate.getDate() + i);
-        addDateButton(newDate, i === 0);
+        addDateClick(newDate, i === 0);
     }
 }
 
-
-function displayDateData(postData, selectedDate) {
+function displayDateData(postData ,selectedDate) {
     const contentDashboard = document.getElementById("contentDashboard");
     contentDashboard.innerHTML = '';
 
@@ -94,39 +76,25 @@ function displayDateData(postData, selectedDate) {
     filteredData.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card-dashboard';
-        let buttonClass = '';
-        let buttonDisabled = '';
-        let buttonText = '';
-
-        if (item.status === 'Joined') {
-            buttonClass = ' active';
-            buttonDisabled = 'disabled';
-            buttonText = 'Joined';
-        } else if (item.status === 'Your') {
-            buttonClass = 'your';
-            buttonDisabled = 'disabled';
-            buttonText = 'Your Post';
-        } else {
-            buttonClass = '';
-            buttonDisabled = '';
-            buttonText = 'Join';
-        }
-
+        const buttonClass = item.status === 'Joined' ? ' active' : '';
+        const buttonDisabled = item.status === 'Joined' ? 'disabled' : '';
+        const buttonText = item.status === 'Joined' ? 'Joined' : 'Join';
 
         card.innerHTML = `
-            <img src="${item.img}">
-            <div class="card-dashboard-text">
+            <img src="${item.img}" />
+            <div class="dashboard-container">
+                <div><h3 class='card-dashboard-topic'>${item.title}</h3></div>
                 <div class='card-dashboard-content'>
                     <p class='font-13'>${formatData(selectedDate)}</p>
                     <p class='font-13'>${formatTime(item.startTime)} - ${formatTime(item.endTime)}</p>
                     <p class='font-12'>${item.maxParticipants} Participants</p>
                 </div>
-                <h3 class='card-dashboard-topic'>${item.title}</h3>
-
-                <p class='font-12'>${item.description}</p>
-            </div>
-            <div class='card-dashboard-footer'>
-                <button class='btn-dashboard ${buttonClass}' data-status=${item.status} ${buttonDisabled} data-post-id='${item.postID}'>${buttonText}</button>
+                <div class="dashboard-description">
+                    <p class='font-12'>${item.description}</p>
+                </div>
+                <div class='card-dashboard-footer'>
+                    <button class='btn-dashboard ${buttonClass}' data-status=${item.status} ${buttonDisabled} data-post-id='${item.postID}'>${buttonText}</button>
+                </div>
             </div>
         `;
 
@@ -144,6 +112,50 @@ function displayDateData(postData, selectedDate) {
 
         contentDashboard.appendChild(card);
     });
+}
+
+async function sendParticipationData(postID) {
+    try {
+        const response = await fetch('/Dashboard/AddPostParticipant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ postID: parseInt(postID) })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            return "Joined";
+        } else {
+            alert("User not logged in.")
+            //console.log('Error:', data.message);
+            return "Error";
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return "Error";
+    }
+}
+
+async function fetchPosts(selectedDate) {
+    try {
+        const response = await fetch('/Dashboard/GetPosts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date: formatToDateString(selectedDate) })
+        });
+
+        const postData = await response.json();
+        //console.log(postData);
+        return postData;
+    } catch (error) {
+        //console.error('Error fetching posts:', error);
+        return [];
+    }
 }
 
 async function loadDashboardData(selectedDate) {
@@ -186,53 +198,3 @@ window.addEventListener('load', () => {
 });
 
 
-
-// ########################### fetch Data ########################### //
-
-async function sendParticipationData(postID) {
-    try {
-        const response = await fetch('/Dashboard/AddPostParticipant', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ postID: parseInt(postID) })
-        });
-
-        const data = await response.json();
-        if (data.success) {
-            return "Joined";
-        } else {
-            alert("User not logged in.")
-            //console.log('Error:', data.message);
-            return "Error";
-        }
-
-    } catch (error) {
-        console.error('Error:', error);
-        return "Error";
-    }
-}
-
-async function fetchPosts(selectedDate) {
-    try {
-        console.log(selectedDate)
-        const response = await fetch('/Dashboard/GetPosts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ date: formatToDateString(selectedDate) })
-        });
-
-
-        const postData = await response.json();
-        const reversedPostsData = [...postData].reverse();
-        console.log(reversedPostsData);
-        return reversedPostsData;
-
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        return [];
-    }
-}
