@@ -7,56 +7,14 @@
     <div class="text-center">
         <h1 class="my-posts">Your Posts on JoinMeNow</h1>
     </div>
-    <hr>
-    <div class="event">
-        <h6 class="card-time"> 6:00 PM - 9:00 PM </h6>
-        <h6 class="card-date"> September 16, 2024</h6>
-        <h5 class="card-title"><strong>Board Games Night: Fun & Strategy</strong></h5>
-        <p>Calling all board game enthusiasts! Gather for an evening of strategy, teamwork, and friendly competition. Whether you're a fan of classics or curious to try new games, this event is perfect for game lovers of all levels.</p>
-        <div class="event-controls">
-            <div onclick="toggleDropdown('dropdown1')" class="dropdown-button">Participant will join  &#9662;</div>
-            <button type="button" class="button-remove" onclick="removeEvent(this)">Cancel</button>
-        </div>
 
-        <div id="dropdown1" class="dropdown-content">
-            <form>
-                <div class="button-container">
-                    <button type="button" class="button-select-all" onclick="selectAll(this)">Select All</button>
-                    <button type="button" class="button-join" onclick="joinMe(this.form)">Join Me</button>
-                    <button type="button" class="button-deny" onclick="denyParticipants(this.form)">Deny</button>
-                </div>
-                <label><input type="checkbox" name="participants" value="participant1"> The Peep <span class="status"></span></label>
-                <label><input type="checkbox" name="participants" value="participant2"> Kim Jihyun <span class="status"></span></label>
-                <label><input type="checkbox" name="participants" value="participant3"> Lee Jong <span class="status"></span></label>
-            </form>
-        </div>
+    <div class="mypost-hr">
+        <hr>
     </div>
-    <div class="event">
-        <h6 class="card-time"> 6:00 PM - 9:00 PM </h6>
-        <h6 class="card-date"> September 16, 2024</h6>
-        <h5 class="card-title">
-            <strong>Hiking Adventure: Explore the Mountains</strong>
-        </h5>
-        <p>Join us for a scenic hiking trip through the local mountains! Whether you’re a seasoned hiker or just starting out, this adventure offers breathtaking views and a chance to meet.</p>
-        <div class="event-controls">
-            <div onclick="toggleDropdown('dropdown2')" class="dropdown-button">Participant will join  &#9662;</div>
-            <button type="button" class="button-remove" onclick="removeEvent(this)">Cancel</button>
-        </div>
-        <div id="dropdown2" class="dropdown-content">
-            <form>
-                <div class="button-container">
-                    <button type="button" class="button-select-all" onclick="selectAll(this)">Select All</button>
-                    <button type="button" class="button-join" onclick="joinMe(this.form)">Join Me</button>
-                    <button type="button" class="button-deny" onclick="denyParticipants(this.form)">Deny</button>
-                </div>
-                <label><input type="checkbox" name="participants" value="participant4"> The Peep <span class="status"></span></label>
-                <label><input type="checkbox" name="participants" value="participant5"> Kim Jihyun <span class="status"></span></label>
-                <label><input type="checkbox" name="participants" value="participant6"> Lee Jong <span class="status"></span></label>
-
-            </form>
-        </div>
+    <div class="event-list">
     </div>
 </section>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
 <script src="~/js/mypost.js"></script>

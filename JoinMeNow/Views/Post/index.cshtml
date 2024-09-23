@@ -1,0 +1,93 @@
+﻿@model Post;
+@{
+    ViewData["Title"] = "Create Page";
+    var userEmail = ViewBag.UserEmail as string;
+    var username = ViewBag.Username as string;
+    var userID = ViewBag.UserID as string;
+}
+
+<section class="create-post-container">
+    <header>Create Post </header>
+    
+    <form id="postForm" name="postForm" class="form">
+        <span>@userID</span>
+        <div class="input-box">
+            <label>Topic Name</label>
+            <input class="input-topic-name" type="text" name="title" placeholder="Enter Topic Name" required />
+        </div>
+        <div class="input-box">
+            <label>Description</label>
+            <textarea type="text" name="description" placeholder="i.g. location, gender, ages, etc." required></textarea>
+        </div>
+        <div class="input-box">
+            <label>Type</label>
+            <select name="eventType" type="text">
+            </select>
+        </div>
+
+        <div class="input-box">
+            <label>Upload Image</label>
+            <input class ="input-file" type="file" id="image" name="image" accept="image/*" />
+        </div>
+
+        <hr>
+
+        <div class="column">
+            <div class="input-box">
+                <label>Start Date</label>
+                <input class="input-date" type="date" name="startDate" id="startDate" required />
+            </div>
+            <div class="input-box">
+                <label>End Date</label>
+                <input class="input-date" type="date" name="endDate" id="endDate" required />
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="input-box">
+                <label>Start Time</label>
+                <input class="input-time" type="time" name="startTime" value="00:00" required />
+            </div>
+            <div class="input-box">
+                <label>End Time</label>
+                <input class="input-time" type="time" name="endTime" value="00:00" required />
+            </div>
+        </div>
+
+
+
+
+        <div class="input-box">
+            <label>Participants</label>
+            <div class="Participants-option">
+                <div class="Participants">
+                    <input type="radio" id="non-limit" name="participants" value="non-limit" checked required />
+                    <span for="non-limit">Non-Limit</span>
+                </div>
+                <div class="Participants">
+                    <input type="radio" id="limit" name="participants" value="limit" />
+                    <span for="limit">Limit</span>
+                    <input class="number" type="number" name="maxParticipants" placeholder="1" min="1" value="1"
+                           disabled />
+                    <span>Persons</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="input-box">
+            <label>Expiring Date</label>
+            <input class="input-date" type="date" name="closeDate" id="closeDate" required />
+        </div>
+
+
+        <hr>
+        <div class="form-buttons">
+            <a asp-controller="Dashboard" asp-action="Index">Cancel</a>
+            <button class="btn-create" type="submit">Create</button>
+        </div>
+    </form>
+</section>
+
+
+<script src="~/js/createpost.js"></script>

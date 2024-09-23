@@ -1,6 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+
+    var userEmail = ViewBag.UserEmail as string;
+
+    var username = ViewBag.Username as string;
+
+    var userID = ViewBag.UserID as string;
 }
+
 
 @await Html.PartialAsync("Sidebar")
 <section class="home-section">
@@ -12,15 +19,30 @@
         </div>
         <select id="filter" class="filter-btn">
             <option value="all">All</option>
-            <option value="Conference">Conference</option>
-            <option value="Workshop">Workshop</option>
-            <option value="Webinar">Webinar</option>
-            <option value="Networking">Networking Event</option>
-            <option value="Seminar">Seminar</option>
+            <option value="1">Conference</option>
+            <option value="2">Workshop</option>
+            <option value="3">Webinar</option>
+            <option value="4">Networking Event</option>
+            <option value="5">Seminar</option>
         </select>
         <div class="content-dashboard" id="contentDashboard">
         </div>
     </div>
+
+    @if (userEmail != null)
+    {
+        <a asp-controller="Post" asp-action="Index">
+            <div class="create-post br-icon"></div>
+        </a>
+    }
+    else
+    {
+        <a>
+            <div class="create-post br-icon"></div>
+        </a>
+    }
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
 <script src="~/js/dashboard.js"></script>

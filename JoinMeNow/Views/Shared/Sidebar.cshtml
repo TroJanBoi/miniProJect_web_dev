@@ -1,5 +1,6 @@
 ﻿@{
     var userEmail = ViewBag.UserEmail as string;
+
     var username = ViewBag.Username as string;
 }
 
@@ -10,17 +11,20 @@
     </div>
     <ul class="nav-links">
         @if (userEmail != null)
+
         {
             <li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <i class='bx bxs-user-circle'></i>
+                <a>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <i class='bx bxs-user-circle'></i>
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">Hello, @username</div>
+                            <div class="job">@userEmail</div>
+                        </div>
                     </div>
-                    <div class="name-job">
-                        <div class="profile_name">Hello, @username</div>
-                        <div class="job">@userEmail</div>
-                    </div>
-                </div>
+                </a>
             </li>
             <li>
                 <div class="logout">
@@ -34,7 +38,9 @@
                 </div>
             </li>
         }
+
         else
+
         {
             <li>
                 <a asp-controller="Login" asp-action="Index">
