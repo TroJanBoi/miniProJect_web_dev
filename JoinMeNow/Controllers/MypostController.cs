@@ -1,10 +1,17 @@
-﻿using JoinMeNow.Models;
+﻿using JoinMeNow.Data;
+using JoinMeNow.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace JoinMeNow.Controllers
 {
     public class MypostController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public MypostController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
@@ -12,6 +19,87 @@ namespace JoinMeNow.Controllers
             ViewBag.UserEmail = userEmail;
             ViewBag.Username = username;
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetUserPosts([FromBody] PostRequest request)
+        {
+            try
+            {
+                string currentDateStr = request.Date;
+                DateTime currentDate = DateTime.Parse(currentDateStr);
+
+                int userId = int.Parse(HttpContext.Session.GetString("UserID"));
+
+                var posts = _context.posts
+                    .Where(p => p.StartDate.Date >= currentDate && p.UserID == userId)
+                    .Select(p => new PostDto
+                    {
+                        PostID = p.PostID,
+                        UserID = p.UserID,
+                        Title = p.Title,
+                        StartDate = p.StartDate,
+                        EndDate = p.EndDate,
+                        StartTime = p.StartTime,
+                        EndTime = p.EndTime,
+                        EventType = p.EventType,
+                        MaxParticipants = p.MaxParticipants - _context.postparticipants.Count(pp => pp.PostID == p.PostID),
+                        Description = p.Description,
+                        Status = "Your",
+                        CloseDate = p.CloseDate,
+                        Participants = _context.postparticipants
+                            .Where(pp => pp.PostID == p.PostID)
+                            .Select(pp => new ParticipantDto
+                            {
+                                UserID = pp.UserID,
+                                Username = _context.users.FirstOrDefault(u => u.UserID == pp.UserID).Username
+                            })
+                            .ToList()
+                    })
+                    .ToList();
+
+                if (HttpContext.Session.GetString("UserID") != null)
+                {
+                    var registeredPostIds = _context.postparticipants
+                        .Where(pp => pp.UserID == userId)
+                        .Select(pp => pp.PostID)
+                        .ToList();
+
+                    foreach (var post in posts)
+                    {
+                        if (registeredPostIds.Contains(post.PostID))
+                        {
+                            post.Status = "Joined";
+                        }
+                    }
+                }
+
+                return Json(posts);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpGet("GetUser/{userId}")]
+        public async Task<IActionResult> GetUser(int userId)
+        {
+            var user = await _context.users
+                .Where(u => u.UserID == userId)
+                .Select(u => new
+                {
+                    u.UserID,
+                    u.Username
+                })
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound(new { success = false, message = "User not found." });
+            }
+
+            return Ok(new { success = true, user });
         }
     }
 }

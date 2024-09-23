@@ -13,7 +13,20 @@
 </head>
 <body>
 
-    @RenderBody()
+    <div id="loading" class="">
+        <div class="spiner"></div>
+        <h1 class="header"><img src="~/img/dashboard.png"> JoinMeNow</h1>
+    </div>
+
+    <div id="content" class="">
+        @RenderBody()
+    </div>
+
+
+
     <script src="~/js/site.js"></script>
+
+
+
 </body>
 </html>
