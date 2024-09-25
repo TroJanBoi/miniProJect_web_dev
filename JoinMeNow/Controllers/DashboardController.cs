@@ -52,7 +52,7 @@ namespace JoinMeNow.Controllers
                         EndTime = p.EndTime,
                         Img = p.Img,
                         EventType = p.EventType,
-                        MaxParticipants = p.MaxParticipants - _context.postparticipants.Count(pp => pp.PostID == p.PostID),
+                        MaxParticipants = p.MaxParticipants != 0 ? p.MaxParticipants - _context.postparticipants.Count(pp => pp.PostID == p.PostID) : 0,
                         Description = p.Description,
                         Status = p.Status ?? "Not Registered"
                     })

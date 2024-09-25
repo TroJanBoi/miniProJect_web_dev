@@ -73,12 +73,33 @@ function displayDateData(postData ,selectedDate) {
 
     const filteredData = filterData(postData);
 
+    //filteredData.forEach(item => {
+    //    const card = document.createElement('div');
+    //    card.className = 'card-dashboard';
+    //    const buttonClass = item.status === 'Joined' ? ' active' : '';
+    //    const buttonDisabled = item.status === 'Joined' ? 'disabled' : '';
+    //    const buttonText = item.status === 'Joined' ? 'Joined' : 'Join';
+
     filteredData.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card-dashboard';
-        const buttonClass = item.status === 'Joined' ? ' active' : '';
-        const buttonDisabled = item.status === 'Joined' ? 'disabled' : '';
-        const buttonText = item.status === 'Joined' ? 'Joined' : 'Join';
+        let buttonClass = '';
+        let buttonDisabled = '';
+        let buttonText = '';
+
+        if (item.status === 'Joined') {
+            buttonClass = ' active';
+            buttonDisabled = 'disabled';
+            buttonText = 'Joined';
+        } else if (item.status === 'Your') {
+            buttonClass = 'your';
+            buttonDisabled = 'disabled';
+            buttonText = 'Your Post';
+        } else {
+            buttonClass = '';
+            buttonDisabled = '';
+            buttonText = 'Join';
+        }
 
         card.innerHTML = `
             <img src="${item.img}" />
