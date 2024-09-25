@@ -1,6 +1,8 @@
 ﻿using JoinMeNow.Data;
+using JoinMeNow.Hubs;
 using JoinMeNow.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace JoinMeNow.Controllers
@@ -8,8 +10,15 @@ namespace JoinMeNow.Controllers
     public class MypostController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public MypostController(ApplicationDbContext context)
+
+        private readonly IHubContext<PostHub> _hubContext;
+
+        public MypostController(
+            ApplicationDbContext context,
+            IHubContext<PostHub> hubContext
+        )
         {
+            _hubContext = hubContext;
             _context = context;
         }
         public IActionResult Index()
@@ -132,6 +141,7 @@ namespace JoinMeNow.Controllers
                         Status = p.status,
                     }).ToList();
 
+                _hubContext.Clients.All.SendAsync("UpdateMeetup");
                 return Ok(new { success = true , participants = participantsBeforeUpdate });
             }
             catch (Exception ex)

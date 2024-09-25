@@ -1302,6 +1302,90 @@ button:hover {
     height: 5px;
 }
 
+/* ######### Meet Up Page ######### */
+.all {
+    display: flex;
+    justify-content: center;
+}
+
+.meetup-body {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    color: #365486;
+    width: 80%;
+    align-content: center;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.event-time {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff6f00;
+}
+
+.event-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.event-card p {
+    font-size: 14px;
+    color: #365486
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+    .cancel-btn:hover {
+        background-color: #ff1a1a;
+        color: white;
+    }
+
+.up {
+    display: flex;
+    align-items: center;
+}
+
+    .up::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #133b7d;
+        margin-left: 10px;
+    }
+
+.alljoin {
+    display: flex;
+    align-items: center;
+}
+
+    .alljoin::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #133b7d;
+        margin-left: 10px;
+        margin-left: 10px;
+        margin-left: 10px;
+    }
+
+
 /* ######### responsive ######### */
 
 @media (max-width: 600px) {

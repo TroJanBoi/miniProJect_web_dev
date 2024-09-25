@@ -5,6 +5,10 @@
 @await Html.PartialAsync("Sidebar")
 <section class="home-section">
     <div class="text-center">
-        <h1>Welcome to Meet Up Page</h1>
+        <h1 class="header"><img src="~/img/dashboard.png"> Your Events on JoinMeNow</h1>
     </div>
+    <div id="events-root"></div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
+<script src="~/js/meetup.js"></script>

@@ -135,6 +135,49 @@ function displayDateData(postData ,selectedDate) {
     });
 }
 
+async function loadDashboardData(selectedDate) {
+    const postData = await fetchPosts(selectedDate);
+    displayDateData(postData, selectedDate);
+}
+
+function filterData(data) {
+    if (currentFilter === 'all') {
+        return data;
+    }
+    return data.filter(item => item.eventType === currentFilter);
+}
+
+function setupFilter() {
+    const filterSelect = document.getElementById('filter');
+    filterSelect.addEventListener('change', function () {
+        currentFilter = this.value;
+        loadDashboardData(currentDate);
+    });
+}
+
+showWeek(currentDate);
+setupFilter();
+loadDashboardData(currentDate);
+
+window.addEventListener('resize', () => {
+    const navDash = document.querySelector('.nav-dash');
+    const activeButton = navDash.querySelector('button.active');
+    if (activeButton) {
+        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+});
+
+window.addEventListener('load', () => {
+    const activeButton = document.querySelector('.nav-dash button.active');
+    if (activeButton) {
+        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+});
+
+
+
+// ########################### fetch Data ########################### //
+
 async function sendParticipationData(postID) {
     try {
         const response = await fetch('/Dashboard/AddPostParticipant', {
@@ -178,44 +221,3 @@ async function fetchPosts(selectedDate) {
         return [];
     }
 }
-
-async function loadDashboardData(selectedDate) {
-    const postData = await fetchPosts(selectedDate);
-    displayDateData(postData, selectedDate);
-}
-
-function filterData(data) {
-    if (currentFilter === 'all') {
-        return data;
-    }
-    return data.filter(item => item.eventType === currentFilter);
-}
-
-function setupFilter() {
-    const filterSelect = document.getElementById('filter');
-    filterSelect.addEventListener('change', function () {
-        currentFilter = this.value;
-        loadDashboardData(currentDate);
-    });
-}
-
-showWeek(currentDate);
-setupFilter();
-loadDashboardData(currentDate);
-
-window.addEventListener('resize', () => {
-    const navDash = document.querySelector('.nav-dash');
-    const activeButton = navDash.querySelector('button.active');
-    if (activeButton) {
-        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-});
-
-window.addEventListener('load', () => {
-    const activeButton = document.querySelector('.nav-dash button.active');
-    if (activeButton) {
-        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-});
-
-
