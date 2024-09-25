@@ -91,7 +91,7 @@ namespace JoinMeNow.Controllers
                 .Select(u => new
                 {
                     u.UserID,
-                    u.Username
+                    u.Username,
                 })
                 .FirstOrDefaultAsync();
 

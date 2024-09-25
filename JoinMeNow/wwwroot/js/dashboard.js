@@ -72,7 +72,7 @@ function displayDateData(postData ,selectedDate) {
     contentDashboard.innerHTML = '';
 
     const filteredData = filterData(postData);
-
+    console.log(filteredData);
     //filteredData.forEach(item => {
     //    const card = document.createElement('div');
     //    card.className = 'card-dashboard';

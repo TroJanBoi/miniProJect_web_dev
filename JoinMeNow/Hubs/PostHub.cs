@@ -14,9 +14,9 @@ namespace JoinMeNow.Hubs
             await Clients.All.SendAsync("ReceiveMessage", message);
         }
 
-        public async Task UpdateParticipant(int userId, int postId)
+        public async Task UpdateParticipant(int userId, int postId ,string status)
         {
-            await Clients.All.SendAsync("UpdateParticipant", userId, postId);
+            await Clients.All.SendAsync("UpdateParticipant", userId, postId, status);
         }
 
     }

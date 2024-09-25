@@ -141,7 +141,7 @@ namespace JoinMeNow.Controllers
                 _hubContext
                     .Clients
                     .All
-                    .SendAsync("UpdateParticipant", parsedUserId, postId);
+                    .SendAsync("UpdateParticipant", parsedUserId, postId , "pending");
 
                 return Json(new {
                     success = true,
