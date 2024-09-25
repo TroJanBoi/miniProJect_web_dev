@@ -2,7 +2,7 @@
 //Dashboard ############################## 
 let currentDate = new Date();
 let currentFilter = 'all';
-const selectedDate = new Date();
+let selectedDate;
 
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/postHub")
@@ -85,12 +85,6 @@ function displayDateData(postData ,selectedDate) {
 
     const filteredData = filterData(postData);
     console.log(filteredData);
-    //filteredData.forEach(item => {
-    //    const card = document.createElement('div');
-    //    card.className = 'card-dashboard';
-    //    const buttonClass = item.status === 'Joined' ? ' active' : '';
-    //    const buttonDisabled = item.status === 'Joined' ? 'disabled' : '';
-    //    const buttonText = item.status === 'Joined' ? 'Joined' : 'Join';
 
     filteredData.forEach(item => {
         const card = document.createElement('div');
