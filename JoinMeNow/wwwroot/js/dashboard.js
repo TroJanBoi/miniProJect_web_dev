@@ -2,7 +2,19 @@
 //Dashboard ############################## 
 let currentDate = new Date();
 let currentFilter = 'all';
+const selectedDate = new Date();
 
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/postHub")
+    .build();
+connection.on("UpdatePosts", function () {
+    console.log("UpdatePosts");
+    loadDashboardData(selectedDate);
+});
+
+connection.start().catch(function (err) {
+    return console.error(err.toString());
+});
 function formatData(date) {
     return date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
 }
@@ -38,7 +50,7 @@ function showWeek(startDate) {
     function handlerDateClick(e) {
         document.querySelectorAll('#navItem button').forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
-        const selectedDate = new Date(e.target.getAttribute('data-date'));
+        selectedDate = new Date(e.target.getAttribute('data-date'));
         loadDashboardData(selectedDate);
 
         if (e.target === dateNav.lastElementChild) {
@@ -215,7 +227,8 @@ async function fetchPosts(selectedDate) {
 
         const postData = await response.json();
         //console.log(postData);
-        return postData;
+        const reversedPostsData = [...postData].reverse();
+        return reversedPostsData;
     } catch (error) {
         //console.error('Error fetching posts:', error);
         return [];

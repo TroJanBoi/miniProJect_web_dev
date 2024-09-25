@@ -133,9 +133,9 @@ async function displayEvents() {
 
 
             const dateCheck = (currentDate.toISOString().split('T')[0] == item.startDate.split('T')[0]);
-            const timeCheck = ((time1 - time2) / (1000 * 60));
+            const timeCheck = ((time2 - time1) / (1000 * 60));
 
-
+            console.log(timeCheck);
             if (timeCheck <= 30 && timeCheck >= 0 && dateCheck) {
                 eventCard.style.backgroundColor = '#FFFBEB';
                 eventTime.style.color = "#BF6A02";
@@ -175,7 +175,8 @@ async function fetchPosts() {
 
         const postData = await response.json();
         console.log('Post Data:', postData);
-        return postData;
+        const reversedPostsData = [...postData].reverse();
+        return reversedPostsData;
     } catch (error) {
         console.error('Error fetching posts:', error);
         return [];
