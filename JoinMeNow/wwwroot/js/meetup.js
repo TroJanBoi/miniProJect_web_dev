@@ -119,7 +119,7 @@ async function displayEvents() {
             eventCard.appendChild(eventDetails);
             eventCard.appendChild(eventTitle);
             eventCard.appendChild(eventDescription);
-            eventCard.appendChild(cancelButton);
+            //eventCard.appendChild(cancelButton);
 
 
             const currentDate = new Date();

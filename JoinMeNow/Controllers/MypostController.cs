@@ -30,18 +30,53 @@ namespace JoinMeNow.Controllers
             return View();
         }
 
+        private void IsPostActive()
+        {
+            var currentDateTime = DateTime.Now;
+            var posts = _context.posts.ToList();
+
+            foreach (var post in posts)
+            {
+                post.Status = "active";
+                _context.posts.Update(post);
+
+                if (post.StartDate.Date == post.CloseDate.Date || post.StartDate > currentDateTime)
+                {
+                    if (post.StartTime < currentDateTime.TimeOfDay)
+                    {
+                        post.Status = "inactive";
+                        _context.posts.Update(post);
+                    }
+                }
+                else if (post.CloseDate < currentDateTime || post.StartDate > currentDateTime)
+                {
+                    if (post.CloseDate < currentDateTime && (post.StartDate > currentDateTime || (post.StartDate.Date == currentDateTime.Date && post.StartTime > currentDateTime.TimeOfDay)))
+                    {
+                        post.Status = "closejoin";
+                    }
+                    else
+                    {
+                        post.Status = "inactive";
+                    }
+                }
+            }
+
+            _context.SaveChanges();
+        }
+
         [HttpPost]
         public JsonResult GetUserPosts([FromBody] PostRequest request)
         {
+            IsPostActive();
             try
             {
                 string currentDateStr = request.Date;
                 DateTime currentDate = DateTime.Parse(currentDateStr);
-
+                var currentDateTime = DateTime.Now;
                 int userId = int.Parse(HttpContext.Session.GetString("UserID"));
 
                 var posts = _context.posts
-                    .Where(p => p.StartDate.Date >= currentDate && p.UserID == userId)
+                    .Where(p => p.StartDate.Date == currentDate && p.Status == "active" && p.UserID == userId || p.StartDate.Date == currentDate && p.Status == "closejoin" && p.UserID == userId)
                     .Select(p => new PostDto
                     {
                         PostID = p.PostID,
@@ -52,7 +87,7 @@ namespace JoinMeNow.Controllers
                         StartTime = p.StartTime,
                         EndTime = p.EndTime,
                         EventType = p.EventType,
-                        MaxParticipants = p.MaxParticipants - _context.postparticipants.Count(pp => pp.PostID == p.PostID),
+                        MaxParticipants = p.MaxParticipants,
                         Description = p.Description,
                         Status = "Your",
                         CloseDate = p.CloseDate,

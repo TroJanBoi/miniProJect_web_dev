@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
 :root {
     /*    --primary-color: #133b7d;*/
-    --primary-color: #133b7d;
-    --primary-color-light: #274f91;
-    --secondary-color: #124D54;
+    --primary-color: #043353;
+    --primary-color-light: #E44652;
+    --secondary-color: #043353;
     --third-color: #102937;
     --accent-color: #e74c3c;
-    --background-color: #dedede;
+    --background-color: #EEEEEE;
     --text-color: #333;
     --card-background: white;
     --font-family: 'Kdam Thmor Pro', sans-serif;
@@ -15,9 +17,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background: var(--background-color);
     box-sizing: border-box;
-    overflow: hidden;
     font-family: var(--font-family2);
     min-height: 100vh;
     color: var(--text-color);
@@ -34,7 +35,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,6 +43,26 @@ body {
     opacity: 1;
     transition: opacity 0.1s ease-in-out, visibility 0s linear 1s
 }
+
+    #loading .loading-text {
+        display: flex;
+        flex-direction: row;
+    }
+
+        #loading .loading-text h1 {
+            display: flex;
+            flex-direction: row;
+            font-size: 55px;
+            font-family: "Marck Script", cursive;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        #loading .loading-text i {
+            transform: rotate(180deg);
+            margin-right: 10px;
+            align-content: center;
+        }
 
     #loading.hidden {
         opacity: 0;
@@ -64,7 +85,7 @@ body {
 
 .spiner {
     border: 6px solid #f3f3f3;
-    border-top: 6px solid var(--primary-color);
+    border-top: 6px solid var(--secondary-color);
     border-radius: 100%;
     width: 40px;
     height: 40px;
@@ -228,6 +249,87 @@ body {
         cursor: pointer;
     }
 
+/* ######### History ######### */
+
+.historyPage {
+    padding: 1rem;
+    font-family: var(--font-family2);
+}
+
+    .historyPage .title {
+        color: var(--primary-color);
+        text-align: center;
+    }
+
+    .historyPage .card-title {
+        color: #355384;
+    }
+
+    .historyPage .event {
+        display: flex;
+        flex-direction: column;
+        background-color: #f2f2f7;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 10px;
+        position: relative;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+        .historyPage .event .history-type {
+            text-align:right;
+        }
+
+            .historyPage .event .history-type .join {
+                padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+                border-radius: 5px;
+                background-color: lightblue;
+                font-weight: bold;
+            }
+
+            .historyPage .event .history-type .your {
+                padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+                border-radius: 5px;
+                background-color: lightgoldenrodyellow;
+                font-weight: bold;
+            }
+
+
+    .historyPage .event-status {
+        display: flex;
+        flex-direction: column;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .historyPage hr {
+        border: none;
+        height: 1px;
+        background-color: #355384;
+        margin-bottom: 15px;
+    }
+
+    .historyPage .event-status .card-time {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .historyPage .event-status .card-date {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .historyPage .event-status .card-title {
+        font-size: 1.8rem;
+        margin-top: 10px;
+    }
+
+    .historyPage .event-status p {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
 /* ######### Register ######### */
 .register-page {
     height: 100vh;
@@ -344,18 +446,81 @@ body {
     justify-items: center;
     justify-content: center;
     margin: 0;
+    padding-right: 80px;
     text-align: center;
 }
+/* ######### Navbar ######### */
+.nav-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80px;
+    /*    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;*/
+}
+
+    .nav-bar .main-logo {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        font-size: 55px;
+        font-family: "Marck Script", cursive;
+        font-weight: 600;
+        font-style: normal;
+        color: var(--primary-color);
+    }
+
+        .nav-bar .main-logo i {
+            transform: rotate(180deg);
+            margin-right: 10px;
+            align-content: center;
+        }
+
+    .nav-bar .nav-btn {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        align-items: center;
+        justify-content: end;
+        width: 90%;
+        align-content: center;
+        padding: .6rem .6rem .6rem .6rem;
+    }
+
+
+        .nav-bar .nav-btn .login-button {
+            width: 100%;
+            height: 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            background-color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .nav-bar .nav-btn .signup-button {
+            width: 100%;
+            height: 35px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            background-color: var(--background-color);
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
 
 /* ######### Sidebar ######### */
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     height: 100%;
     width: 260px;
-    background: white;
+    background: #FAF8F0;
     z-index: 100;
+    padding-top: 20px;
     transition: all 0.5s ease;
 }
 
@@ -595,21 +760,15 @@ body {
 
 .home-section {
     position: relative;
-    background: var(--background-color);
-    padding: 1rem 1rem 1rem 1rem;
     left: 260px;
-    width: calc(98% - 260px);
-    height: calc(100vh - 2rem);
-    overflow-y: auto;
+    width: calc(100% - 260px);
+    height: auto;
     transition: all 0.5s ease;
 }
 
 .sidebar.close ~ .home-section {
     left: 78px;
-    width: calc(98% - 78px);
-    height: calc(100vh - 2rem);
-    overflow-y: auto;
-    padding: 1rem 1rem 1rem 1rem;
+    width: calc(100% - 78px);
 }
 
 .home-section .home-content {
@@ -636,7 +795,7 @@ body {
 
 .sidebar.close .Menu-btn {
     height: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -710,6 +869,10 @@ body {
     text-align: center;
 }
 
+.dashboard {
+    padding: 1rem;
+}
+
 .logo-dashboard {
     width: 30px;
     height: 30px;
@@ -718,7 +881,7 @@ body {
 }
 
 .nav-dash {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 10px;
     overflow-x: auto;
     white-space: nowrap;
@@ -739,7 +902,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    border-bottom: 10px solid var(--primary-color);
+    border-bottom: 10px solid var(--secondary-color);
 }
 
     .nav-item button {
@@ -771,7 +934,7 @@ body {
 
 .card-dashboard {
     background-color: var(--card-background);
-    border: 1px solid #ddd;
+    /*    border: 1px solid #ddd;*/
     border-radius: 10px;
     width: 90%;
     padding: 1rem;
@@ -831,7 +994,7 @@ body {
     color: var(--card-background);
     border: none;
     padding: 0.5rem 1rem;
-    font-family: var(--font-family);
+    font-family: var(--font-family-2);
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
@@ -860,6 +1023,15 @@ body {
     background-color: grey;
 }
 
+.btn-dashboard.full {
+    background-color: grey;
+}
+
+.full {
+    background-color: gray;
+}
+
+
 .filter-btn {
     width: max-content;
     padding: 2px;
@@ -885,10 +1057,43 @@ body {
     }
 
 /* ######### My post ######### */
+.event-list {
+    padding: 1rem;
+}
+
+    .event-list .event {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
 .event .mypost-content {
     display: flex;
     flex-direction: column;
+    background-color: white;
+}
+
+.my-posts {
+    font-size: 20px;
+    padding: .4rem;
+    color: var(--secondary-color);
+}
+
+.mypost-content .participant-nonlimit {
+    font-size: smaller;
+    margin-top: 15px;
+    padding: .4rem;
+    width: fit-content;
+    background-color: lightcyan;
+    border-radius: 10px;
+}
+
+.mypost-content .participant-limit {
+    font-size: smaller;
+    margin-top: 15px;
+    padding: .4rem;
+    width: fit-content;
+    background-color: lightgoldenrodyellow;
+    border-radius: 10px;
 }
 
 .mypost-content .card-date {
@@ -1045,7 +1250,7 @@ button:hover {
 
 .home-section hr {
     border: 10px;
-    height: 10px;
+    height: 5px;
     background-color: #355384;
     margin-bottom: 15px;
 }
@@ -1179,6 +1384,18 @@ button:hover {
         margin-bottom: 5px;
         display: block;
         font-weight: bold;
+    }
+
+.participants-discription {
+    display:flex;
+    flex-direction:column;
+}
+
+.participants-discription .box{
+    display: flex;
+    flex-direction: column;
+}
+    .participants-discription .box p {
     }
 
 .Participants .number {
@@ -1384,8 +1601,47 @@ button:hover {
         margin-left: 10px;
         margin-left: 10px;
     }
+/* ######### Dashboard Dialog ######### */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
+.dialog-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
 
+.dialog-buttons {
+    margin-top: 20px;
+}
+
+.dialog-btn-confirm, .dialog-btn-cancel {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.dialog-btn-confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+.dialog-btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
 /* ######### responsive ######### */
 
 @media (max-width: 600px) {
@@ -1501,6 +1757,10 @@ button:hover {
     .create-post-container .form {
         width: 80%;
     }
+
+    .nav-bar .nav-btn {
+        padding: .6rem 1rem .6rem .6rem;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
@@ -1527,4 +1787,5 @@ button:hover {
     .create-post-container .form {
         width: 50%;
     }
+}
 }

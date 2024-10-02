@@ -41,6 +41,7 @@ public class PostDto
     public string Status { get; set; }
     public DateTime CloseDate { get; set; }
     public string Img { get; set; }
+    public int ParticipantsCount { get; set; }
     public List<ParticipantDto> Participants { get; set; }
 }
 

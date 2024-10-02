@@ -41,9 +41,10 @@ async function updateParticipant(userID, postID ,status) {
             const form = postElement.querySelector('.participants-name form');
 
             if (form) {
-                const newUserCheckbox = document.createElement('label');
-                newUserCheckbox.innerHTML = `<span class="${status}"></span><input type="checkbox" name="participants" value="${user.userID}"> ${user.username} <span class="status"></span>`;
-                form.appendChild(newUserCheckbox);
+                renderParticipants([{userID: userID, username: user.username, status: status}], form);
+                //const newUserCheckbox = document.createElement('label');
+                //newUserCheckbox.innerHTML = `<span class="${status}"></span><input type="checkbox" name="participants" value="${user.userID}"> ${user.username} <span class="status"></span>`;
+                //form.appendChild(newUserCheckbox);
             }
         }
         console.log("sucess")
@@ -128,29 +129,41 @@ function displayPosts(posts) {
     posts.forEach(post => {
         const postElement = document.createElement('div');
         postElement.className = 'event';
-
         const dropdownId = `dropdown${dropdownCounter++}`;
+
+        let paticipantType = post.maxParticipants === 0 ? `<span class="participant-nonlimit">Non Limit Participant</span>` : `<span class="participant-limit">${post.maxParticipants} Participant</span>`
+
+        let buttonContainerHTML;
+        if (post.maxParticipants === 0) {
+            buttonContainerHTML = `
+            <div class="button-container">
+                <button type="button" class="button-select-all" onclick="selectAllParticipants('${dropdownId}')">Select All</button>
+                <button type="button" class="button-join" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'), ${post.postID}, 'joined')">Join Me</button>
+                <button type="button" class="button-deny" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'), ${post.postID}, 'denied')">Deny</button>
+            </div>
+        `;
+        } else {
+            buttonContainerHTML = `<div class="button-container"></div>`;
+        }
+
         postElement.innerHTML = `
             <div class="mypost-content" data-post-id="${post.postID}">
                 <span class="card-time">${formatTime(post.startTime)} - ${formatTime(post.endTime)}</span>
                 <span class="card-date">${new Date(post.startDate).toLocaleDateString()}</span>
+                ${paticipantType}
                 <span class="card-title">${post.title}</span>
                 <p>${post.description}</p>
 
                 <div class="event-controls">
                     <div onclick="toggleDropdown('${dropdownId}')" class="dropdown-button">Participant will join &#9662;</div>
-                    <button type="button" class="button-remove" onclick="removeEvent(this)">Cancel Post</button>
+                    <button type="button" class="button-remove" onclick="removeEvent(this)">Delete Post</button>
                 </div>
                 <div id="${dropdownId}" class="dropdown-content" dropdown-post-id="">
                     <div class="participants-name">
                         <form>
                         </form>
                     </div>
-                    <div class="button-container">
-                        <button type="button" class="button-select-all" onclick="selectAllParticipants('${dropdownId}')">Select All</button>
-                        <button type="button" class="button-join" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'),${post.postID},'joined' )">Join Me</button>
-                        <button type="button" class="button-deny" onclick="updateParticipantsStatus(document.querySelector('#${dropdownId} form'),${post.postID},'denied')">Deny</button>
-                    </div>
+                    ${buttonContainerHTML}
                 </div>
             </div>
         `;

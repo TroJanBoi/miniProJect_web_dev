@@ -1,6 +1,5 @@
 ﻿@{
     var userEmail = ViewBag.UserEmail as string;
-
     var username = ViewBag.Username as string;
 }
 
@@ -11,7 +10,6 @@
     </div>
     <ul class="nav-links">
         @if (userEmail != null)
-
         {
             <li>
                 <a>
@@ -38,9 +36,7 @@
                 </div>
             </li>
         }
-
         else
-
         {
             <li>
                 <a asp-controller="Login" asp-action="Index">

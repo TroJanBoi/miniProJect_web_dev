@@ -1,0 +1,30 @@
+﻿@{
+    var userEmail = ViewBag.UserEmail as string;
+    var username = ViewBag.Username as string;
+}
+
+<div class="nav-bar">
+    <div class="Menu-btn">
+        <span class="text"></span>
+    </div>
+    <div class="main-logo">
+        <i class='bx bxs-customize'></i>
+        <a><span>Join</span>MeNow</a>
+    </div>
+    @if (userEmail != null)
+    {
+        <div>
+        </div>
+
+    }
+    else
+    {
+        <div class="nav-btn">
+            <div></div>
+            <div></div>
+            <button onclick="window.location.href='@Url.Action("Index", "Register")'" class="signup-button">SignUp</button>
+            <button onclick="window.location.href='@Url.Action("Index", "Login")'" class="login-button">Login</button>
+        </div>
+    }
+
+</div>

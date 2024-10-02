@@ -8,7 +8,7 @@
 
 <section class="create-post-container">
     <header>Create Post </header>
-    
+
     <form id="postForm" name="postForm" class="form">
         <span>@userID</span>
         <div class="input-box">
@@ -27,7 +27,7 @@
 
         <div class="input-box">
             <label>Upload Image</label>
-            <input class ="input-file" type="file" id="image" name="image" accept="image/*" />
+            <input class="input-file" type="file" id="image" name="image" accept="image/*" />
         </div>
 
         <hr>
@@ -73,8 +73,18 @@
                 </div>
             </div>
         </div>
-
-
+        <div class="participants-discription">
+            <div class="box">
+                <p>Non-limit</p>
+                <span>- Able to choose(Join/Deny) the participants.</span>
+                <span>- Able to close the registration(Join).</span>
+            </div>
+            <div class="box">
+                <p>Limit</p>
+                <span>- Unble to choose the participants.</span>
+                <span>- When the number of participants reaches the set limit, no more participants will be allowed to join.</span>
+            </div>
+        </div>
         <div class="input-box">
             <label>Expiring Date</label>
             <input class="input-date" type="date" name="closeDate" id="closeDate" required />

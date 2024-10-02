@@ -7,12 +7,12 @@
 
     var userID = ViewBag.UserID as string;
 }
-
-
+@await Html.PartialAsync("Headderbar")
 @await Html.PartialAsync("Sidebar")
+
 <section class="home-section">
     <div class="dashboard">
-        <h1 class="header"><img src="~/img/dashboard.png"> JoinMeNow</h1>
+@*         <h1 class="header"><img src="~/img/dashboard.png"> JoinMeNow</h1> *@
         <div class="nav-dash">
             <div class="nav-item" id="navItem">
             </div>
@@ -41,7 +41,19 @@
             <div class="create-post br-icon"></div>
         </a>
     }
+
+    <div id="confirmationDialog" class="dialog-overlay">
+        <div class="dialog-box">
+            <p>Are you sure you want to cancel your join?</p>
+            <div class="dialog-buttons">
+                <button id="confirmCancel" class="dialog-btn-confirm">Yes</button>
+                <button id="cancelAction" class="dialog-btn-cancel">No</button>
+            </div>
+        </div>
+    </div>
 </section>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>

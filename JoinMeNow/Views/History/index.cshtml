@@ -1,10 +1,18 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "History";
 }
 @await Html.PartialAsync("Sidebar")
+@await Html.PartialAsync("Headderbar")
 <section class="home-section">
     <div class="text-center">
-        <h1>Welcome to History Page</h1>
+        <span class="my-posts">Your History on JoinMeNow</span>
+    </div>
+    <hr>
+    <div class="historyPage">
     </div>
 </section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
+<script src="~/js/history.js"></script>

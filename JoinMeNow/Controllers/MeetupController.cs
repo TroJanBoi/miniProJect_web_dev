@@ -50,7 +50,7 @@ namespace JoinMeNow.Controllers
                     .ToList();
 
                 var posts = _context.posts
-                    .Where(p => registeredPostIds.Contains(p.PostID))
+                    .Where(p => registeredPostIds.Contains(p.PostID) && p.Status =="active" || registeredPostIds.Contains(p.PostID) && p.Status == "closejoin")
                     .Select(p => new PostDto
                     {
                         PostID = p.PostID,
