@@ -1389,13 +1389,17 @@ button:hover {
 .participants-discription {
     display:flex;
     flex-direction:column;
+    padding-left:20px;
 }
 
 .participants-discription .box{
     display: flex;
     flex-direction: column;
+    font-size: .8rem;
 }
     .participants-discription .box p {
+        margin-bottom:0;
+        font-weight:bold;
     }
 
 .Participants .number {
