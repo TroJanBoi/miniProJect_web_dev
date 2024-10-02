@@ -231,22 +231,6 @@ body {
         cursor: pointer;
     }
 
-.btn-login-2 i {
-    font-size: 18px;
-}
-
-.btn-login-2 {
-    padding: 10px;
-    width: 200px;
-    border-radius: 10px;
-    background-color: #d1d1d1;
-    font-size: medium;
-    font-family: (--font-family2);
-}
-
-    .btn-login-2:hover {
-        background-color: #dfdfdf;
-        cursor: pointer;
     }
 
 /* ######### History ######### */
@@ -1380,6 +1364,7 @@ button:hover {
 }
 
     .input-box label {
+        font-size: 1.2rem;
         color: #333;
         margin-bottom: 5px;
         display: block;
@@ -1387,16 +1372,15 @@ button:hover {
     }
 
 .participants-discription {
-    display:flex;
-    flex-direction:column;
-    padding-left:20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.participants-discription .box{
-    display: flex;
-    flex-direction: column;
-    font-size: .8rem;
-}
+    .participants-discription .box {
+        width: 48%;
+        font-size: .8rem;
+    }
     .participants-discription .box p {
         margin-bottom:0;
         font-weight:bold;
@@ -1416,9 +1400,9 @@ button:hover {
 
 .input-box .input-topic-name,
 .input-box select {
+    font-size: 1rem;
     height: 50px;
     outline: none;
-    font-size: 1rem;
     color: #707070;
     margin-top: 5px;
     border: 1px solid #ddd;
@@ -1479,8 +1463,9 @@ button:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 30px;
+    column-gap: 290px;
 }
+
 
 .Participants {
     display: flex;
