@@ -1,6 +1,7 @@
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/postHub")
     .build();
+
 document.getElementById("postForm").addEventListener("submit", async function (event) {
         event.preventDefault();
         const formData = new FormData(this);
