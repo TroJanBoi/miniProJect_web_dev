@@ -10,7 +10,7 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/postHub")
     .build();
 connection.on("UpdatePosts", function () {
-    console.log("UpdatePosts");
+    //console.log("UpdatePosts");
     loadDashboardData(selectedDate);
 });
 
@@ -19,14 +19,14 @@ connection.start().catch(function (err) {
 });
 
 connection.on("UpdatePostsID", (postID) => {
-    console.log("UpdatePostsID", postID);
+    //console.log("UpdatePostsID", postID);
     const updatedPost = postData.find(item => item.postID === postID);
 
     if (updatedPost && updatedPost.maxParticipants !== 0) {
         const cardToUpdate = document.querySelector(`[data-post-id='${postID}']`).closest('.card-dashboard');
         const participantsElement = cardToUpdate.querySelector('.participants-message');
         updatedPost.participantsCount = updatedPost.participantsCount + 1;
-        console.log(updatedPost.participantsCount);
+        //console.log(updatedPost.participantsCount);
         if (updatedPost.maxParticipants === 0) {
             participantsElement.textContent = 'Non limit Participants';
         } else if (updatedPost.participantsCount >= updatedPost.maxParticipants) {
@@ -113,7 +113,7 @@ function displayDateData(postData, selectedDate) {
     contentDashboard.innerHTML = '';
 
     const filteredData = filterData(postData);
-    console.log(filteredData);
+    //console.log(filteredData);
 
     filteredData.forEach(item => {
         const card = document.createElement('div');
@@ -155,7 +155,7 @@ function displayDateData(postData, selectedDate) {
 
 
         card.innerHTML = `
-            <img src="${item.img}" />
+            <img src="${item.img}" alt="image for ${item.title}"/>
             <div class="dashboard-container">
                 <div><h3 class='card-dashboard-topic'>${item.title}</h3></div>
                 <div class='card-dashboard-content'>
@@ -320,7 +320,7 @@ async function sendParticipationData(postID) {
         }
 
     } catch (error) {
-        console.error('Error:', error);
+        //console.error('Error:', error);
         return "Error";
     }
 }
@@ -346,7 +346,7 @@ async function fetchPosts(selectedDate) {
 }
 
 async function sendCancellationData(postID) {
-    console.log("cancel Post ", postID);
+    //console.log("cancel Post ", postID);
     try {
         const response = await fetch(`/Dashboard/cancel-join/${postID}`, {
             method: 'POST',
@@ -360,7 +360,7 @@ async function sendCancellationData(postID) {
             return 'Error';
         }
     } catch (error) {
-        console.error('Error:', error);
+        //console.error('Error:', error);
         return 'Error';
     }
 }

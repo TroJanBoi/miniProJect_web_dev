@@ -14,7 +14,7 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/postHub")
     .build();
 connection.on("UpdateParticipant", function (userID, postID , status) {
-    console.log("UpdateParticipant : ", userID, postID);
+    //console.log("UpdateParticipant : ", userID, postID);
     updateParticipant(userID, postID , status);
 });
 
@@ -26,10 +26,10 @@ connection.start().catch(function (err) {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const posts = await fetchUserPosts();
-        console.log(posts)
+        //console.log(posts)
         displayPosts(posts);
     } catch (error) {
-        console.error('Error fetching posts:', error);
+        //console.error('Error fetching posts:', error);
     }
 });
 
@@ -49,9 +49,9 @@ async function updateParticipant(userID, postID ,status) {
             //    //form.appendChild(newUserCheckbox);
             //}
         }
-        console.log("sucess")
+        //console.log("sucess")
     } catch (error) {
-        console.error('Error updating participant:', error);
+        //console.error('Error updating participant:', error);
     }
 }
 
@@ -62,7 +62,7 @@ function selectAllParticipants(dropdownId) {
     checkboxes.forEach(function (checkbox) {
         checkbox.checked = !allChecked;
     });
-    console.log(dropdownId, allChecked ? "Unselecting all" : "Selecting all");
+    //console.log(dropdownId, allChecked ? "Unselecting all" : "Selecting all");
 }
 
 function updateParticipantsStatus(form, postId , status) {
@@ -81,10 +81,10 @@ function updateParticipantsStatus(form, postId , status) {
 }
 
 function renderParticipants(participants, form) {
-    console.log(participants)
+    //console.log(participants)
 
     if (!form) {
-        console.error("Participants container not found");
+        //console.error("Participants container not found");
         return;
     }
 
@@ -192,7 +192,7 @@ function removeEvent(button) {
     const cancelDeleteButton = document.getElementById('cancelDelete');
 
     confirmDeleteButton.onclick = function () {
-        console.log("Delete Post ID : ", parseInt(postID))
+        //console.log("Delete Post ID : ", parseInt(postID))
         modal.style.display = 'none'; 
         deletePost(parseInt(postID))
             .then(() => {
@@ -224,7 +224,7 @@ async function fetchUser(userID) {
         return data.user;
 
     } catch (error) {
-        console.error('Error fetching user:', error);
+        //console.error('Error fetching user:', error);
         throw error;
     }
 }
@@ -245,13 +245,13 @@ async function fetchUserPosts() {
         return reversedPosts;
 
     } catch (error) {
-        console.error('Error in fetchPosts:', error);
+        //console.error('Error in fetchPosts:', error);
         throw error;
     }
 }
 
 function updateStatus(postId, selectedParticipants, status) {
-    console.log(postId, selectedParticipants, status);
+    //console.log(postId, selectedParticipants, status);
     return fetch('/Mypost/UpdateStatus', {
         method: 'POST',
         headers: {

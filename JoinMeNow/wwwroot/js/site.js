@@ -1,27 +1,4 @@
-﻿//document.addEventListener("DOMContentLoaded", function () {
-//    const loadingScreen = document.getElementById('loading');
-//    const content = document.getElementById('content');
-
-
-//    function hideLoadingScreen() {
-//        loadingScreen.classList.add('hidden');
-//        content.classList.add('show');
-//    }
-
-//    const timeoutId = setTimeout(() => {
-//        hideLoadingScreen();
-//    }, 3000);
-
-//    window.onload = function () {
-//        setTimeout(() => {
-//            clearTimeout(timeoutId);
-//            hideLoadingScreen();
-//        }, 1000);
-//    };
-
-//});
-
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
     const loadingScreen = document.getElementById('loading');
     const content = document.getElementById('content');
 
@@ -33,14 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
     window.onload = function () {
         loadingScreen.classList.remove('hidden');
         content.classList.remove('show');
-
         setTimeout(hideLoadingScreen, 500);
     };
 });
 
 
 connection.on("UpdateNotifications", function () {
-    console.log("UpdateNotifications");
+    //console.log("UpdateNotifications");
     displayNotification(selectedDate);
 });
 
@@ -135,11 +111,11 @@ async function fetchNotifications() {
             throw new Error('Network response was not ok');
         }
         const notifications = await response.json();
-        console.log(notifications);
+        //console.log(notifications);
         const reversedData = [...notifications].reverse();
         return reversedData;
     } catch (error) {
-        console.error('Error fetching notifications:', error);
+        //console.error('Error fetching notifications:', error);
         return null;
     }
 }
@@ -158,6 +134,6 @@ async function markAllAsRead() {
         }
         displayNotification();
     } catch (error) {
-        console.error('Error marking notifications as read:', error);
+        //console.error('Error marking notifications as read:', error);
     }
 }

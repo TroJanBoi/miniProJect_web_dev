@@ -2,7 +2,7 @@
     .withUrl("/postHub")
     .build();
 connection.on("UpdateMeetup", function () {
-    console.log("UpdateMeetup");
+    //console.log("UpdateMeetup");
     displayEvents();
 });
 
@@ -135,7 +135,7 @@ async function displayEvents() {
             const dateCheck = (currentDate.toISOString().split('T')[0] == item.startDate.split('T')[0]);
             const timeCheck = ((time2 - time1) / (1000 * 60));
 
-            console.log(timeCheck);
+            //console.log(timeCheck);
             if (timeCheck <= 30 && timeCheck >= 0 && dateCheck) {
                 eventCard.style.backgroundColor = '#FFFBEB';
                 eventTime.style.color = "#BF6A02";
@@ -148,7 +148,7 @@ async function displayEvents() {
             }
         });
     } else {
-        console.error('Expected postData to be an array, but received:', postData);
+        //console.error('Expected postData to be an array, but received:', postData);
     }
 }
 
@@ -169,16 +169,16 @@ async function fetchPosts() {
 
         if (!response.ok) {
             const errorResponse = await response.json();
-            console.error('API Error:', errorResponse);
+            //console.error('API Error:', errorResponse);
             return [];
         }
 
         const postData = await response.json();
-        console.log('Post Data:', postData);
+        //console.log('Post Data:', postData);
         const reversedPostsData = [...postData].reverse();
         return reversedPostsData;
     } catch (error) {
-        console.error('Error fetching posts:', error);
+        //console.error('Error fetching posts:', error);
         return [];
     }
 }

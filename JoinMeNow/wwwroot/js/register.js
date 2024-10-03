@@ -14,7 +14,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         });
 
         const result = await response.json();
-        console.log(result);
+        //console.log(result);
         if (result.success) {
             const modal = document.getElementById('registerSuccess');
             modal.classList.add('show');
