@@ -13,6 +13,8 @@
 </head>
 <body>
 
+
+
     <div id="loading" class="">
         <div class="spiner"></div>
         <div class="loading-text">
@@ -22,15 +24,85 @@
     </div>
 
     <div id="content" class="">
+
         @RenderBody()
     </div>
 
+    <div class="overlay" id="overlay"></div>
+    <div class="all-popup">
+        <div class="notification-popup" id="notification-popup">
+            <div class="header-content">
+                <div class="title">
+                    <i class='bx bxs-bell-ring'></i>
+                    <h2>Notification</h2>
+                </div>
+                <a onclick="markAllAsRead()">Make all as read</a>
+            </div>
+            <div class="popup-content">
+            </div>
+        </div>
 
 
-    <script src="~/js/site.js"></script>
+
+        <div id="confirmDeleteModal" class="modal">
+            <div class="modal-content-delete">
+                <i class='bx bx-error-circle'></i>
+                <h4>Confirm Deletion</h4>
+                <p>Are you sure you want to delete this post?</p>
+                <div class="modal-footer">
+                    <button id="cancelDelete" class="modal-close">Cancel</button>
+                    <button id="confirmDelete" class="modal-confirm">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="notLogin" class="modal">
+            <div class="modal-content-notLogin">
+                <i class='bx bx-log-in'></i>
+                <h4>Login Required</h4>
+                <p>You need to log in to join this post.</p>
+                <div class="modal-footer">
+                    <button id="closeNotLogin" class="modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="unJoin" class="modal">
+            <div class="modal-content-unjoin">
+                <i class='bx bx-run'></i>
+                <h4>Are you sure you want to cancel?</h4>
+                <p>By canceling, you will be removed from the event. Do you want to proceed?</p>
+                <div class="modal-footer">
+                    <button id="cancelUnjoin" class="modal-close">close</button>
+                    <button id="confirmUnjoin" class="modal-confirm">Unjoine</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="registerSuccess" class="modal">
+            <div class="modal-content-registerSuccess">
+                <i class='bx bx-check'></i>
+                <h4>Registration Successful!</h4>
+                <p>Thank you for registering! We’re excited to have you on board.</p>
+            </div>
+        </div>
+
+        <div id="registerFail" class="modal">
+            <div class="modal-content-registerFail">
+                <i class='bx bx-x'></i>
+                <h4>Registration failed.</h4>
+                <p>This may be due to an existing username or email, or there may be errors in the provided information. Please check your inputs and try again."</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js"></script>
 
 
 </body>

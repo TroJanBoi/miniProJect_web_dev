@@ -68,3 +68,15 @@ public class PostIdRequest
 {
     public int PostID { get; set; }
 }
+
+
+public class Notification
+{
+    public int Id { get; set; } 
+    public int SourceOwner { get; set; }
+    public int UserID { get; set; } 
+    public string EventName { get; set; }
+    public string Detail { get; set; }
+    public DateTime Timestamp { get; set; } = DateTime.Now;
+    public string status { get; set; } = "unread";
+}

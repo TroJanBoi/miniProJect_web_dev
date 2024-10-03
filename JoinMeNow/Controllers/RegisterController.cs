@@ -26,9 +26,16 @@ namespace JoinMeNow.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existingUser = await _context.users
+                .FirstOrDefaultAsync(u => u.Username == model.Username || u.Email == model.Email);
+
+                if (existingUser != null)
+                {
+                    return Json(new { success = false, message = "Username or email already exists. Please choose a different one." });
+                }
                 var user = new User
                 {
-                    FullName = model.Username,
+                    FullName = model.FullName,
                     Username = model.Username,
                     Password = model.Password,
                     Email = model.Email
@@ -36,12 +43,15 @@ namespace JoinMeNow.Controllers
 
                 _context.users.Add(user);
                 await _context.SaveChangesAsync();
+
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("Username", user.Username);
                 HttpContext.Session.SetString("UserID", user.UserID.ToString());
-                return RedirectToAction("Index", "Dashboard");
+
+                return Json(new { success = true, message = "Registration successful! Redirecting to dashboard..." });
             }
-            return View(model);
+
+            return Json(new { success = false, message = "Registration failed. Please check your inputs." });
         }
     }
 }

@@ -14,5 +14,6 @@ namespace JoinMeNow.Data
         public DbSet<PostParticipant> postparticipants { get; set; }
         public DbSet<Post> posts { get; set; }
         public DbSet<EventType> eventtypes { get; set; }
+        public DbSet<Notification> notifications { get; set; }
     }
 }

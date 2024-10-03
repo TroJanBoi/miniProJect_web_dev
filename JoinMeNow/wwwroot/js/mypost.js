@@ -39,13 +39,15 @@ async function updateParticipant(userID, postID ,status) {
         const postElement = document.querySelector(`.mypost-content[data-post-id="${postID}"]`);
         if (postElement) {
             const form = postElement.querySelector('.participants-name form');
-
-            if (form) {
-                renderParticipants([{userID: userID, username: user.username, status: status}], form);
-                //const newUserCheckbox = document.createElement('label');
-                //newUserCheckbox.innerHTML = `<span class="${status}"></span><input type="checkbox" name="participants" value="${user.userID}"> ${user.username} <span class="status"></span>`;
-                //form.appendChild(newUserCheckbox);
-            }
+            const newUserCheckbox = document.createElement('label');
+            newUserCheckbox.innerHTML = `<span class="${status}"></span><input type="checkbox" name="participants" value="${user.userID}"> ${user.username} <span class="status"></span>`;
+            form.appendChild(newUserCheckbox);
+            //if (form) {
+            //    renderParticipants([{userID: userID, username: user.username, status: status}], form);
+            //    //const newUserCheckbox = document.createElement('label');
+            //    //newUserCheckbox.innerHTML = `<span class="${status}"></span><input type="checkbox" name="participants" value="${user.userID}"> ${user.username} <span class="status"></span>`;
+            //    //form.appendChild(newUserCheckbox);
+            //}
         }
         console.log("sucess")
     } catch (error) {
@@ -179,6 +181,35 @@ function formatTime(timeString) {
 }
 
 
+function removeEvent(button) {
+    const postElement = button.closest('.mypost-content');
+    const postID = postElement.getAttribute('data-post-id');
+
+    const modal = document.getElementById('confirmDeleteModal');
+    modal.classList.add('show');
+
+    const confirmDeleteButton = document.getElementById('confirmDelete');
+    const cancelDeleteButton = document.getElementById('cancelDelete');
+
+    confirmDeleteButton.onclick = function () {
+        console.log("Delete Post ID : ", parseInt(postID))
+        modal.style.display = 'none'; 
+        deletePost(parseInt(postID))
+            .then(() => {
+                modal.classList.remove('show');
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
+
+
+    cancelDeleteButton.onclick = function () {
+        modal.classList.remove('show');
+    };
+}
+
 
 // ########################### fetch Data ########################### //
 async function fetchUser(userID) {
@@ -232,4 +263,15 @@ function updateStatus(postId, selectedParticipants, status) {
             Status: status
         })
     });
+}
+
+function deletePost(postID) {
+    return fetch(`/DeletePost/${postID}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete post');
+            }
+        });
 }

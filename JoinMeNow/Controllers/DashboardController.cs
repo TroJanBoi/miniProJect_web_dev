@@ -3,6 +3,7 @@ using JoinMeNow.Hubs;
 using JoinMeNow.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 
 namespace JoinMeNow.Controllers
@@ -10,16 +11,19 @@ namespace JoinMeNow.Controllers
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         private readonly IHubContext<PostHub> _hubContext;
+        private readonly IPostService _postService;
 
         public DashboardController(
             ApplicationDbContext context,
-            IHubContext<PostHub> hubContext
+            IHubContext<PostHub> hubContext,
+            IPostService postService
+
         )
         {
             _hubContext = hubContext;
             _context = context;
+            _postService = postService;
         }
 
         public IActionResult Index()
@@ -33,45 +37,10 @@ namespace JoinMeNow.Controllers
             return View();
         }
 
-        public void IsPostActive()
-        {
-            var currentDateTime = DateTime.Now;
-            var posts = _context.posts.ToList();
-
-            foreach (var post in posts)
-            {
-                post.Status = "active";
-                _context.posts.Update(post);
-
-                if (post.StartDate.Date == post.CloseDate.Date || post.StartDate > currentDateTime)
-                {
-                    if (post.StartTime < currentDateTime.TimeOfDay)
-                    {
-                        post.Status = "inactive";
-                        _context.posts.Update(post);
-                    }
-                }
-                else if (post.CloseDate < currentDateTime || post.StartDate > currentDateTime)
-                {
-                    if (post.CloseDate < currentDateTime && (post.StartDate > currentDateTime || (post.StartDate.Date == currentDateTime.Date && post.StartTime > currentDateTime.TimeOfDay)))
-                    {
-                        post.Status = "closejoin";
-                    }
-                    else
-                    {
-                        post.Status = "inactive";
-                    }
-                    _context.posts.Update(post);
-                }
-            }
-
-            _context.SaveChanges();
-        }
-
         [HttpPost]
         public JsonResult GetPosts([FromBody] PostRequest request)
         {
-            IsPostActive();
+            _postService.IsPostActive();
             try
             {
                 string currentDateStr = request.Date;
@@ -149,7 +118,7 @@ namespace JoinMeNow.Controllers
                     return Json(new
                     {
                         success = false,
-                        message = "User not logged in."
+                        message = "NotLogin"
                     });
                 }
 
@@ -183,6 +152,21 @@ namespace JoinMeNow.Controllers
                         status = participantStatus
                     };
 
+                if (participantStatus == "joined")
+                {
+                    string date = post.StartDate.ToString("yyyy/MM/dd");
+                    var notification = new Notification
+                    {
+                        SourceOwner = post.UserID,
+                        UserID = parsedUserId,
+                        EventName = post.Title,
+                        Detail = $"You are officially registered for {post.Title} on {date}. We look forward to seeing you!"
+                    };
+
+                    _context.notifications.Add(notification);
+                    _context.SaveChanges();
+                }
+
                 _context.postparticipants.Add(newParticipant);
                 _context.SaveChanges();
                 _hubContext
@@ -190,6 +174,7 @@ namespace JoinMeNow.Controllers
                     .All
                     .SendAsync("UpdateParticipant", parsedUserId, postId, newParticipant.status);
                 _hubContext.Clients.All.SendAsync("UpdatePostsID", postId);
+                _hubContext.Clients.All.SendAsync("UpdateNotifications");
 
                 return Json(new
                 {
@@ -232,6 +217,74 @@ namespace JoinMeNow.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "Internal server error: " + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNotifications()
+        {
+            try
+            {
+                var userId = HttpContext.Session.GetString("UserID");
+
+                if (userId == null) {
+                    return Ok(new List<object>());
+                }
+
+                var notifications = await _context.notifications
+                    .Where(n => n.UserID == int.Parse(userId))
+                    .Join(_context.users,
+                          n => n.SourceOwner,
+                          u => u.UserID,
+                          (n, u) => new
+                          {
+                              n.Id,
+                              n.EventName,
+                              n.Detail,
+                              n.Timestamp,
+                              n.status,
+                              SourceOwnerName = u.Username
+                          })
+                    .ToListAsync();
+
+
+                if (notifications == null)
+                {
+                    return Ok(new List<object>());
+                }
+
+                return Ok(notifications);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkAllAsRead()
+        {
+            try
+            {
+                var userId = HttpContext.Session.GetString("UserID");
+
+
+                var notifications = await _context.notifications
+                    .Where(n => n.UserID == int.Parse(userId) && n.status == "unread")
+                    .ToListAsync();
+
+                foreach (var notification in notifications)
+                {
+                    notification.status = "read";
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
     }

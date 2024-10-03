@@ -91,13 +91,13 @@ function showWeek(startDate) {
                 dateNav.removeChild(dateNav.firstElementChild);
             }
         } else if (e.target === dateNav.firstElementChild) {
-            //const prevDate = new Date(selectedDate);
-            //prevDate.setDate(selectedDate.getDate() - 0);
-            //addDateClick(prevDate, false, true);
+            const prevDate = new Date(selectedDate);
+            prevDate.setDate(selectedDate.getDate() - 1);
+            addDateClick(prevDate, false, true);
 
-            //if (dateNav.children.length > 8) {
-            //    dateNav.removeChild(dateNav.lastElementChild);
-            //}
+            if (dateNav.children.length > 8) {
+                dateNav.removeChild(dateNav.lastElementChild);
+            }
         }
     }
 
@@ -131,7 +131,7 @@ function displayDateData(postData, selectedDate) {
             buttonText = 'Joined';
         } else if (item.status === 'Your') {
             buttonClass = 'your';
-            //buttonDisabled = 'disabled';
+            buttonDisabled = 'disabled';
             buttonText = 'Your Post';
         } else if (participantsCount === item.maxParticipants && item.status === "active" && item.maxParticipants != 0) {
             buttonClass = 'full';
@@ -178,15 +178,16 @@ function displayDateData(postData, selectedDate) {
             const postID = this.getAttribute('data-post-id');
 
             if (this.textContent === 'Joined' && this.textContent !== 'Your Post') {
-                console.log("cancel")
-                const confirmCancel = confirm('Are you sure you want to cancel your join?');
-                if (confirmCancel) {
-                    const cancelStat = await sendCancellationData(postID);
-                    if (cancelStat === 'Cancelled') {
-                        //alert('You have successfully cancelled your join.');
-                        location.reload();
-                    }
-                }
+                showCancelJoinModal(postID)
+                //console.log("cancel")
+                //const confirmCancel = confirm('Are you sure you want to cancel your join?');
+                //if (confirmCancel) {
+                //    const cancelStat = await sendCancellationData(postID);
+                //    if (cancelStat === 'Cancelled') {
+                //        //alert('You have successfully cancelled your join.');
+                //        location.reload();
+                //    }
+                //}
             } else {
                 const joinStat = await sendParticipationData(postID);
                 if (joinStat === "Joined") {
@@ -262,8 +263,40 @@ window.addEventListener('load', () => {
     }
 });
 
+function showModalNotLoggedIn() {
+    const modal = document.getElementById('notLogin');
+    modal.classList.add('show');
 
+    const closeButton = document.getElementById('closeNotLogin');
+    closeButton.addEventListener('click', function () {
+        modal.classList.remove('show');
+    });
+}
 
+function showCancelJoinModal(postID) {
+    const modal = document.getElementById('unJoin');
+    modal.classList.add('show');
+
+    const closeButton = document.getElementById('cancelUnjoin');
+    closeButton.addEventListener('click', function () {
+        modal.classList.remove('show');
+    });
+
+    document.getElementById('confirmUnjoin').onclick = async function () {
+        const cancelStat = await sendCancellationData(postID);
+        if (cancelStat === 'Cancelled') {
+            location.reload();
+        }
+    };
+}
+
+const createPostBtn = document.getElementById('createPostBtn');
+
+if (createPostBtn) {
+    createPostBtn.addEventListener('click', function () {
+        showModalNotLoggedIn();
+    });
+}
 // ########################### fetch Data ########################### //
 
 async function sendParticipationData(postID) {
@@ -279,9 +312,10 @@ async function sendParticipationData(postID) {
         const data = await response.json();
         if (data.success) {
             return "Joined";
-        } else {
-            alert("User not logged in....")
+        } else if (data.message === "NotLogin"){
+            //alert("User not logged in....")
             //console.log('Error:', data.message);
+            showModalNotLoggedIn();
             return "Error";
         }
 

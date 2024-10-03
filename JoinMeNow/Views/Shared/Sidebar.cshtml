@@ -1,5 +1,6 @@
 ﻿@{
     var userEmail = ViewBag.UserEmail as string;
+
     var username = ViewBag.Username as string;
 }
 
@@ -10,6 +11,7 @@
     </div>
     <ul class="nav-links">
         @if (userEmail != null)
+
         {
             <li>
                 <a>
@@ -36,7 +38,9 @@
                 </div>
             </li>
         }
+
         else
+
         {
             <li>
                 <a asp-controller="Login" asp-action="Index">
@@ -55,12 +59,22 @@
         <hr>
         <p>Menu</p>
         <li>
+            <a id="notification-btn">
+                <i class='bx bx-bell'></i>
+                <span class="link_name">Notification</span>
+                <span class="notification-counter">1</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Notification</a></li>
+            </ul>
+        </li>
+        <li>
             <a asp-controller="Dashboard" asp-action="Index">
                 <i class='bx bx-category'></i>
                 <span class="link_name">Dashboard</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Dashboard</a></li>
+                <li><a class="link_name" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
             </ul>
         </li>
 
@@ -70,7 +84,7 @@
                 <span class="link_name">Meet Up</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Meet Up</a></li>
+                <li><a class="link_name" asp-controller="Meetup" asp-action="Index">Meet Up</a></li>
             </ul>
         </li>
 
@@ -80,7 +94,7 @@
                 <span class="link_name">My Post</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">My Post</a></li>
+                <li><a class="link_name" asp-controller="Mypost" asp-action="Index">My Post</a></li>
             </ul>
         </li>
 
@@ -90,12 +104,13 @@
                 <span class="link_name">History</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">History</a></li>
+                <li><a class="link_name" asp-controller="History" asp-action="Index">History</a></li>
             </ul>
         </li>
         <hr>
-
     </ul>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
 <script src="~/js/sidebar.js"></script>

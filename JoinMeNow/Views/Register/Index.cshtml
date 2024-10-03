@@ -4,6 +4,10 @@
     ViewData["Title"] = "Register Page";
 }
 
+<style>
+
+</style>
+
 <div class="container">
     <div class="register-page centered">
         <div class="card-register">
@@ -13,29 +17,29 @@
             </div>
 
             <div class="card-register-body">
-                <form asp-action="Register" method="post">
+                <form id="registerForm">
                     <div class="card-register-sub-body">
                         <label>Full Name</label>
-                        <input type="text" asp-for="FullName" class="register-input" placeholder="Full Name" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
+                        <input type="text" asp-for="FullName" class="register-input" placeholder="Full Name" onchange="validateFullName(this)" />
+                        <span asp-validation-for="FullName" class="text-danger" id="fullNameError"></span>
                     </div>
 
                     <div class="card-register-sub-body">
                         <a>Username</a>
-                        <input type="text" name="Username" class="register-input" placeholder="Username" asp-for="Username" />
-                        <span asp-validation-for="Username" class="text-danger"></span>
+                        <input type="text" name="Username" class="register-input" placeholder="Username" asp-for="Username" onchange="validateUsername(this)" />
+                        <span asp-validation-for="Username" class="text-danger" id="usernameError"></span>
                     </div>
 
                     <div class="card-register-sub-body">
                         <a>Email</a>
-                        <input type="email" name="Email" class="register-input" placeholder="Email" asp-for="Email" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input type="email" name="Email" class="register-input" placeholder="Email" asp-for="Email" onchange="validateEmail(this)" />
+                        <span asp-validation-for="Email" class="text-danger" id="emailError"></span>
                     </div>
 
                     <div class="card-register-sub-body">
                         <a>Password</a>
-                        <input type="password" name="Password" class="register-input" placeholder="Password" asp-for="Password" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input type="password" name="Password" class="register-input" placeholder="Password" asp-for="Password" onchange="validatePassword(this)" />
+                        <span asp-validation-for="Password" class="text-danger" id="passwordError"></span>
                     </div>
                     <div class="card-register-footer">
                         <div class="mt-20">
@@ -51,3 +55,9 @@
         </div>
     </div>
 </div>
+<div id="notiregis" class="notification" style="display: none;"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.15/signalr.min.js"></script>
+<script src="~/js/register.js"></script>

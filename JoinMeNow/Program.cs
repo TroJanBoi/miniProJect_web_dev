@@ -9,7 +9,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     new MySqlServerVersion(new Version(8, 0, 23))));
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddSignalR();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
