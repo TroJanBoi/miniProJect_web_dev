@@ -4,6 +4,7 @@ let currentDate = new Date();
 let currentFilter = 'all';
 let selectedDate;
 let postData;
+
 selectedDate = new Date();
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/postHub")
@@ -90,13 +91,13 @@ function showWeek(startDate) {
                 dateNav.removeChild(dateNav.firstElementChild);
             }
         } else if (e.target === dateNav.firstElementChild) {
-            const prevDate = new Date(selectedDate);
-            prevDate.setDate(selectedDate.getDate() - 1);
-            addDateClick(prevDate, false, true);
+            //const prevDate = new Date(selectedDate);
+            //prevDate.setDate(selectedDate.getDate() - 0);
+            //addDateClick(prevDate, false, true);
 
-            if (dateNav.children.length > 8) {
-                dateNav.removeChild(dateNav.lastElementChild);
-            }
+            //if (dateNav.children.length > 8) {
+            //    dateNav.removeChild(dateNav.lastElementChild);
+            //}
         }
     }
 
