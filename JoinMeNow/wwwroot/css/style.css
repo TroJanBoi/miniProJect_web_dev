@@ -1478,7 +1478,7 @@ body {
     }
 
     .mypost-content .join-status.open {
-        background-color:lightsalmon;
+        background-color: lightsalmon;
     }
 
 .mypost-content .participant-limit {
@@ -1957,7 +1957,7 @@ button:hover {
 }
 
 .meetup-body {
-    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-family: var(--font-family2);
     color: #365486;
     width: 80%;
     align-content: center;
@@ -1972,22 +1972,40 @@ button:hover {
     position: relative;
 }
 
-.event-time {
-    font-size: 16px;
-    font-weight: bold;
-    color: #ff6f00;
-}
+    .event-card .title {
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin: 0;
+    }
 
-.event-card h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
+    .event-card .event-time {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin: 0;
+    }
 
-.event-card p {
-    font-size: 14px;
-    color: #365486
-}
+    .event-card .date {
+        font-size: 1rem;
+        margin: 10px 0px;
+    }
+
+    .event-card .description {
+        font-size: 1rem;
+        margin: 5px 0px;
+        color:gray;
+    }
+
+    .event-card h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .event-card p {
+        font-size: 14px;
+        color: #365486
+    }
 
 .cancel-btn {
     background-color: transparent;

@@ -102,12 +102,15 @@ async function displayEvents() {
             eventTime.textContent = formatTime(item.startTime, item.endTime);
 
             const eventTitle = document.createElement('p');
+            eventTitle.className = "title"
             eventTitle.textContent = item.title;
 
             const eventDescription = document.createElement('p');
+            eventDescription.className = "description"
             eventDescription.textContent = item.description;
 
             const eventDetails = document.createElement('p');
+            eventDetails.className = "date"
             eventDetails.textContent = `Start Date: ${new Date(item.startDate).toLocaleDateString()} | End Date: ${new Date(item.endDate).toLocaleDateString()}`;
 
             const cancelButton = document.createElement('button');
