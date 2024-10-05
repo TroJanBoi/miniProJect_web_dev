@@ -30,32 +30,35 @@
             <input class="input-file" type="file" id="image" name="image" accept="image/*" />
         </div>
 
+
         <hr>
 
-        <div class="column">
-            <div class="input-box">
-                <label>Start Date</label>
-                <input class="input-date" type="date" name="startDate" id="startDate" required />
+        <div class="period-activity">
+            <div class="period-title">Period Activity</div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Start Date</label>
+                    <input class="input-date" type="date" name="startDate" id="startDate" required />
+                </div>
+                <div class="input-box">
+                    <label>End Date</label>
+                    <input class="input-date" type="date" name="endDate" id="endDate" required />
+                </div>
             </div>
-            <div class="input-box">
-                <label>End Date</label>
-                <input class="input-date" type="date" name="endDate" id="endDate" required />
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Start Time</label>
+                    <input class="input-time" type="time" name="startTime" value="00:00" required />
+                </div>
+                <div class="input-box">
+                    <label>End Time</label>
+                    <input class="input-time" type="time" name="endTime" value="00:00" required />
+                </div>
             </div>
         </div>
 
-        <div class="column">
-            <div class="input-box">
-                <label>Start Time</label>
-                <input class="input-time" type="time" name="startTime" value="00:00" required />
-            </div>
-            <div class="input-box">
-                <label>End Time</label>
-                <input class="input-time" type="time" name="endTime" value="00:00" required />
-            </div>
-        </div>
-
-
-
+        <hr>
 
         <div class="input-box">
             <label>Participants</label>
@@ -85,8 +88,11 @@
                 <div>- Once full, no more applications will be join.</div>
             </div>
         </div>
+
+        <hr>
+
         <div class="input-box">
-            <label>Expiring Date</label>
+            <label>Expiring Post Date</label>
             <input class="input-date" type="date" name="closeDate" id="closeDate" required />
         </div>
 
