@@ -58,7 +58,7 @@ namespace JoinMeNow.Controllers
                         EventType = p.EventType,
                         MaxParticipants = p.MaxParticipants,
                         Description = p.Description,
-                        Status = "Your",
+                        Status = p.Status,
                         CloseDate = p.CloseDate,
                         Participants = _context.postparticipants
                             .Where(pp => pp.PostID == p.PostID)
@@ -225,6 +225,23 @@ namespace JoinMeNow.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        [HttpPost("ChangeStatus/{id}")]
+        public async Task<IActionResult> ChangeStatus(int id, string newStatus)
+        {
+            var post = await _context.posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            post.Status = newStatus;
+
+            _context.posts.Update(post);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, newStatus = post.Status });
         }
     }
 }

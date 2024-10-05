@@ -26,7 +26,7 @@ connection.start().catch(function (err) {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const posts = await fetchUserPosts();
-        //console.log(posts)
+        console.log(posts)
         displayPosts(posts);
     } catch (error) {
         //console.error('Error fetching posts:', error);
@@ -132,6 +132,9 @@ function displayPosts(posts) {
         const postElement = document.createElement('div');
         postElement.className = 'event';
         const dropdownId = `dropdown${dropdownCounter++}`;
+        const closeJoinBtn = post.status === "active" ? "Close Joining" : "Open Joining"
+        const closeJoinBtnClass = post.status === "active" ? "close" : "open"
+        const postJoinStat = post.status === "active" ? "Joining" : "Close Joined"
 
         let paticipantType = post.maxParticipants === 0 ? `<span class="participant-nonlimit">Non Limit Participant</span>` : `<span class="participant-limit">${post.maxParticipants} Participant</span>`
 
@@ -150,6 +153,7 @@ function displayPosts(posts) {
 
         postElement.innerHTML = `
             <div class="mypost-content" data-post-id="${post.postID}">
+                <span class = "join-status ${closeJoinBtnClass}">${postJoinStat} </span>
                 <span class="card-time">${formatTime(post.startTime)} - ${formatTime(post.endTime)}</span>
                 <span class="card-date">${new Date(post.startDate).toLocaleDateString()}</span>
                 ${paticipantType}
@@ -158,7 +162,10 @@ function displayPosts(posts) {
 
                 <div class="event-controls">
                     <div onclick="toggleDropdown('${dropdownId}')" class="dropdown-button">Participant will join &#9662;</div>
-                    <button type="button" class="button-remove" onclick="removeEvent(this)">Delete Post</button>
+                    <div>
+                        <button type="button" class="button-statusjoin ${closeJoinBtnClass}" data-post-id="${post.postID}"  data-status="${post.status}"  onclick="changStatusPost(this)">${closeJoinBtn}</button>
+                        <button type="button" class="button-remove" onclick="removeEvent(this)">Delete Post</button>
+                    </div>
                 </div>
                 <div id="${dropdownId}" class="dropdown-content" dropdown-post-id="">
                     <div class="participants-name">
@@ -180,6 +187,25 @@ function formatTime(timeString) {
     return timeString.split(':').slice(0, 2).join(':');
 }
 
+function changStatusPost(button) {
+    const postID = parseInt(button.getAttribute('data-post-id'), 10);
+    const currentStatus = button.getAttribute('data-status'); 
+    const newStatus = currentStatus === 'closejoin' ? 'active' : 'closejoin';
+
+
+    changePostStatus(postID, newStatus)
+        .then(data => {
+            if (data.success) {
+                location.reload();
+                //button.setAttribute('data-status', data.newStatus);
+                //button.textContent = data.newStatus === 'closejoin' ? 'Close Join' : 'Active';
+                //button.classList.toggle('close-join-class', data.newStatus === 'closejoin');
+            }
+        })
+        .catch(error => {
+            console.error('Error changing post status:', error);
+        });
+}
 
 function removeEvent(button) {
     const postElement = button.closest('.mypost-content');
@@ -273,5 +299,19 @@ function deletePost(postID) {
             if (!response.ok) {
                 throw new Error('Failed to delete post');
             }
+        });
+}
+
+function changePostStatus(postID, newStatus) {
+    console.log(postID, newStatus);
+    const url = `/ChangeStatus/${postID}?newStatus=${newStatus}`;
+    return fetch(url, {
+        method: 'POST'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to change status');
+            }
+            return response.json();
         });
 }

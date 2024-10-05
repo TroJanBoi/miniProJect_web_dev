@@ -29,45 +29,11 @@ namespace JoinMeNow.Controllers
             ViewBag.UserID = userID;
             return View();
         }
-        public void IsPostActive()
-        {
-            var currentDateTime = DateTime.Now;
-            var posts = _context.posts.ToList();
 
-            foreach (var post in posts)
-            {
-                post.Status = "active";
-                _context.posts.Update(post);
-
-                if (post.StartDate.Date == post.CloseDate.Date || post.StartDate > currentDateTime)
-                {
-                    if (post.StartTime < currentDateTime.TimeOfDay)
-                    {
-                        post.Status = "inactive";
-                        _context.posts.Update(post);
-                    }
-                }
-                else if (post.CloseDate < currentDateTime || post.StartDate > currentDateTime)
-                {
-                    if (post.CloseDate < currentDateTime && (post.StartDate > currentDateTime || (post.StartDate.Date == currentDateTime.Date && post.StartTime > currentDateTime.TimeOfDay)))
-                    {
-                        post.Status = "closejoin";
-                    }
-                    else
-                    {
-                        post.Status = "inactive";
-                    }
-                    _context.posts.Update(post);
-                }
-            }
-
-            _context.SaveChanges();
-        }
 
         [HttpPost]
         public JsonResult GetInactivePosts()
         {
-            IsPostActive();
             try
             {
 

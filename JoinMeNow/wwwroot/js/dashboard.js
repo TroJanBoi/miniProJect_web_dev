@@ -72,27 +72,32 @@ document.getElementById('calendarIcon').addEventListener('click', function () {
                 const selectedDate = new Date(selectedDates[0]);
                 showWeek(selectedDate);
                 loadDashboardData(selectedDate);
+                closeCalendar();
             }
         });
     }
 
     if (isCalendarOpen) {
-        calendar.destroy();
-        calendar = null;
-        isCalendarOpen = false;
+        closeCalendar();
     } else {
         isCalendarOpen = true;
     }
 });
 
-function handleClickOutside(event) {
-    const calendarContainer = document.getElementById("calendarContainer");
-    if (isCalendarOpen && !calendarContainer.contains(event.target) && !document.getElementById('calendarIcon').contains(event.target)) {
+function closeCalendar() {
+    if (calendar) {
         calendar.destroy();
         calendar = null;
         isCalendarOpen = false;
     }
 }
+
+document.addEventListener('click', function (event) {
+    if (isCalendarOpen && !event.target.closest('.flatpickr-calendar') && !event.target.closest('#calendarIcon')) {
+        closeCalendar();
+    }
+});
+
 function handleResize() {
     if (isCalendarOpen) {
         calendar.destroy();
@@ -101,7 +106,6 @@ function handleResize() {
     }
 }
 
-document.addEventListener('click', handleClickOutside);
 window.addEventListener('resize', handleResize);
 
 function showWeek(startDate) {
@@ -159,7 +163,7 @@ function displayDateData(postData, selectedDate) {
     contentDashboard.innerHTML = '';
 
     const filteredData = filterData(postData);
-    //console.log(filteredData);
+    console.log(filteredData);
 
     filteredData.forEach(item => {
         const card = document.createElement('div');
@@ -168,6 +172,8 @@ function displayDateData(postData, selectedDate) {
         let buttonDisabled = '';
         let buttonText = '';
         let participantsCount = item.participantsCount;
+        const ExpiringDate = item.closeDate;
+        const ExpiringDateOnly = ExpiringDate.slice(0, 10);
 
         let participantsMessage;
 
@@ -214,6 +220,9 @@ function displayDateData(postData, selectedDate) {
                 </div>
                 <div class='card-dashboard-footer'>
                     <button class='btn-dashboard ${buttonClass}' data-status=${item.status} ${buttonDisabled} data-post-id='${item.postID}'>${buttonText}</button>
+                </div>
+                <div>
+                    <span class="expiring-date">Expiring Post Date : ${ExpiringDateOnly}</span>
                 </div>
             </div>
         `;

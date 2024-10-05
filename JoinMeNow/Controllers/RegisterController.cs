@@ -45,9 +45,9 @@ namespace JoinMeNow.Controllers
                 _context.users.Add(user);
                 await _context.SaveChangesAsync();
 
-                HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetString("Username", user.Username);
-                HttpContext.Session.SetString("UserID", user.UserID.ToString());
+                //HttpContext.Session.SetString("UserEmail", user.Email);
+                //HttpContext.Session.SetString("Username", user.Username);
+                //HttpContext.Session.SetString("UserID", user.UserID.ToString());
 
                 return Json(new { success = true, message = "Registration successful! Redirecting to dashboard..." });
             }

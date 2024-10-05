@@ -23,8 +23,8 @@ public class PostService : IPostService
 
         foreach (var post in posts)
         {
-            post.Status = "active";
-            _context.posts.Update(post);
+            //post.Status = "active";
+            //_context.posts.Update(post);
 
             if (post.StartDate.Date == currentDateTime.Date && post.CloseDate.Date < currentDateTime.Date)
             {
@@ -34,15 +34,20 @@ public class PostService : IPostService
                 }
                 else
                 {
-                    post.Status = "inactive";
+                    post.Status = "inactive"; 
                 }
                 _context.posts.Update(post);
             }
             else if (post.StartDate.Date == post.CloseDate.Date || post.StartDate > currentDateTime || post.StartDate.Date == currentDateTime.Date)
             {
-                if (post.StartTime < currentDateTime.TimeOfDay)
+                if (post.StartTime < currentDateTime.TimeOfDay && post.StartDate < currentDateTime)
                 {
                     post.Status = "inactive";
+                    _context.posts.Update(post);
+                }
+                else if (post.CloseDate.Date < currentDateTime.Date)
+                {
+                    post.Status = "closejoin";
                     _context.posts.Update(post);
                 }
             }
