@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 <body>
@@ -91,10 +92,26 @@
             <div class="modal-content-registerFail">
                 <i class='bx bx-x'></i>
                 <h4>Registration failed.</h4>
-                <p>This may be due to an existing username or email, or there may be errors in the provided information. Please check your inputs and try again."</p>
+                <p>This may be due to an existing username or email, or there may be errors in the provided information. Please check your inputs and try again.</p>
             </div>
         </div>
 
+
+        <div id="createPostSuccess" class="modal">
+            <div class="modal-content-registerSuccess">
+                <i class='bx bx-check'></i>
+                <h4>Post Created Successfully!</h4>
+                <p>Your post has been successfully created and published. You will be redirected shortly.</p>
+            </div>
+        </div>
+
+        <div id="createPostFail" class="modal">
+            <div class="modal-content-registerFail">
+                <i class='bx bx-x'></i>
+                <h4>Post Creation Failed</h4>
+                <p>We encountered an error while trying to create your post. Please check your input and try again.</p>
+            </div>
+        </div>
 
     </div>
 

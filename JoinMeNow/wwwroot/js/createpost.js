@@ -5,10 +5,10 @@ const connection = new signalR.HubConnectionBuilder()
 document.getElementById("postForm").addEventListener("submit", async function (event) {
         event.preventDefault();
         const formData = new FormData(this);
-        console.log("Form Data before sending:", Array.from(formData.entries()));
+        //console.log("Form Data before sending:", Array.from(formData.entries()));
         try {
             await submitPostData(formData);
-            window.location.href = '/';
+            //window.location.href = '/';
         } catch (error) {
             console.error("Error:", error);
         }
@@ -74,6 +74,25 @@ async function ShowEvenType() {
 
 ShowEvenType();
 
+function showSuccessMessageBox() {
+    const modal = document.getElementById('createPostSuccess');
+    modal.classList.add('show');
+
+    setTimeout(() => {
+        modal.classList.remove('show');
+        window.location.href = '/';
+    }, 2000);
+}
+
+function showFailMessageBox() {
+    const modal = document.getElementById('createPostFail');
+    modal.classList.add('show');
+
+    setTimeout(() => {
+        modal.classList.remove('show');
+        window.location.href = '/';
+    }, 2000);
+}
 
 // ########################### fetch Data ########################### //
 
@@ -96,10 +115,11 @@ async function submitPostData(formData) {
         });
 
         const data = await response.json();
-        if (!response.ok) {
-            throw new Error(data.message || "Error creating post");
+        if (data.success) {
+            showSuccessMessageBox();
+        } else {
+            showFailMessageBox();
         }
-
     } catch (error) {
         console.error("Error:", error);
     }

@@ -1,9 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
 
+
+
+
+
+
+
     var userEmail = ViewBag.UserEmail as string;
 
+
+
+
+
+
+
     var username = ViewBag.Username as string;
+
+
+
+
+
+
 
     var userID = ViewBag.UserID as string;
 }
@@ -12,30 +30,45 @@
 
 <section class="home-section">
     <div class="dashboard">
-@*         <h1 class="header"><img src="~/img/dashboard.png"> JoinMeNow</h1> *@
         <div class="nav-dash">
             <div class="nav-item" id="navItem">
             </div>
         </div>
-        <select id="filter" class="filter-btn">
-            <option value="all">All</option>
-            <option value="1">Conference</option>
-            <option value="2">Workshop</option>
-            <option value="3">Webinar</option>
-            <option value="4">Networking Event</option>
-            <option value="5">Seminar</option>
-        </select>
+        <div class="selectDate">
+            <select id="filter" class="filter-btn">
+                <option value="all">All</option>
+                <option value="1">Conference</option>
+                <option value="2">Workshop</option>
+                <option value="3">Webinar</option>
+                <option value="4">Networking Event</option>
+                <option value="5">Seminar</option>
+            </select>
+            <div class="calender">
+                <i class='bx bx-calendar' id="calendarIcon" style="cursor: pointer;"></i>
+                <div id="calendarContainer">
+                </div>
+            </div>
+        </div>
         <div class="content-dashboard" id="contentDashboard">
         </div>
     </div>
 
     @if (userEmail != null)
+
+
+
     {
         <a asp-controller="Post" asp-action="Index">
             <div class="create-post br-icon"></div>
         </a>
     }
+
+
+
     else
+
+
+
     {
         <a id="createPostBtn">
             <div class="create-post br-icon"></div>
@@ -45,5 +78,5 @@
 </section>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="~/js/dashboard.js"></script>

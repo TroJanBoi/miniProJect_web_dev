@@ -58,6 +58,52 @@ function formatToDateString(date) {
 function formatTime(timeString) {
     return timeString.split(':').slice(0, 2).join(':');
 }
+
+let calendar = null;
+let isCalendarOpen = false;
+
+document.getElementById('calendarIcon').addEventListener('click', function () {
+    const calendarContainer = document.getElementById("calendarContainer");
+
+    if (!calendar) {
+        calendar = flatpickr(calendarContainer, {
+            inline: true,
+            onChange: function (selectedDates) {
+                const selectedDate = new Date(selectedDates[0]);
+                showWeek(selectedDate);
+                loadDashboardData(selectedDate);
+            }
+        });
+    }
+
+    if (isCalendarOpen) {
+        calendar.destroy();
+        calendar = null;
+        isCalendarOpen = false;
+    } else {
+        isCalendarOpen = true;
+    }
+});
+
+function handleClickOutside(event) {
+    const calendarContainer = document.getElementById("calendarContainer");
+    if (isCalendarOpen && !calendarContainer.contains(event.target) && !document.getElementById('calendarIcon').contains(event.target)) {
+        calendar.destroy();
+        calendar = null;
+        isCalendarOpen = false;
+    }
+}
+function handleResize() {
+    if (isCalendarOpen) {
+        calendar.destroy();
+        calendar = null;
+        isCalendarOpen = false;
+    }
+}
+
+document.addEventListener('click', handleClickOutside);
+window.addEventListener('resize', handleResize);
+
 function showWeek(startDate) {
     const dateNav = document.getElementById("navItem");
     dateNav.innerHTML = "";

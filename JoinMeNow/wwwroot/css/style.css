@@ -1216,6 +1216,30 @@ body {
     padding: 1rem;
 }
 
+    .dashboard .selectDate {
+        margin: 10px 0px;
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+    }
+
+        .dashboard .selectDate .calender{
+
+        }
+
+        .dashboard .selectDate .flatpickr-calendar {
+            position: absolute;
+            top: auto;
+            left: auto ;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+    .dashboard .selectDate .calender i {
+        margin-left:20px;
+        font-size: 3rem;
+        color: var(--primary-color)
+    }
+
 .logo-dashboard {
     width: 30px;
     height: 30px;
@@ -1377,11 +1401,11 @@ body {
 
 .filter-btn {
     width: max-content;
+    height: max-content;
     padding: 2px;
     background-color: var(--background-color);
     font-size: 20px;
     font-family: var(--font-family2);
-    margin-bottom: 10px;
     border-radius: 10px;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);

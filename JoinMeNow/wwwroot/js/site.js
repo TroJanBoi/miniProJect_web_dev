@@ -16,7 +16,7 @@
 
 
 connection.on("UpdateNotifications", function () {
-    //console.log("UpdateNotifications");
+    console.log("UpdateNotifications");
     displayNotification(selectedDate);
 });
 

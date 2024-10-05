@@ -209,9 +209,9 @@ namespace JoinMeNow.Controllers
                 };
 
                 _context.notifications.Add(notification);
-                _hubContext.Clients.All.SendAsync("UpdateNotifications");
-            }
 
+            }
+            _hubContext.Clients.All.SendAsync("UpdateNotifications");
             _context.postparticipants.RemoveRange(participants);
             _context.posts.Remove(post);
             try
