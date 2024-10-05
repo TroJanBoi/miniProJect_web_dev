@@ -16,7 +16,7 @@
 
 
 connection.on("UpdateNotifications", function () {
-    console.log("UpdateNotifications");
+    //console.log("UpdateNotifications");
     displayNotification(selectedDate);
 });
 
@@ -44,6 +44,7 @@ if (overlay) {
 }
 
 async function displayNotification() {
+    console.log("UpdateNotifications");
     const notificationPopup = document.getElementById("notification-popup");
     const popupContent = notificationPopup.querySelector(".popup-content");
     const notificationCounter = document.querySelector('.notification-counter');

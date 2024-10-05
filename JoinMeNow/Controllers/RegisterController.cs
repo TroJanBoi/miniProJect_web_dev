@@ -33,6 +33,7 @@ namespace JoinMeNow.Controllers
                 {
                     return Json(new { success = false, message = "Username or email already exists. Please choose a different one." });
                 }
+
                 var user = new User
                 {
                     FullName = model.FullName,
@@ -50,8 +51,10 @@ namespace JoinMeNow.Controllers
 
                 return Json(new { success = true, message = "Registration successful! Redirecting to dashboard..." });
             }
-
-            return Json(new { success = false, message = "Registration failed. Please check your inputs." });
+            else
+            {
+                return Json(new { success = false, message = "Registration failed. Please check your inputs." });
+            }
         }
     }
 }

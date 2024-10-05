@@ -165,8 +165,9 @@ namespace JoinMeNow.Controllers
                         }
                     }
                 }
-                _hubContext.Clients.All.SendAsync("UpdateNotifications");
+
                 _context.SaveChanges();
+                _hubContext.Clients.All.SendAsync("UpdateNotifications");
 
                 var participantsBeforeUpdate = _context.postparticipants
                     .Where(p => p.PostID == request.PostId)
@@ -205,15 +206,16 @@ namespace JoinMeNow.Controllers
                     SourceOwner = post.UserID,
                     UserID = participant.UserID,
                     EventName = post.Title,
-                    Detail = $"Post {post.Title} on {date} has been denied. Thank you for your contribution!",
+                    Detail = $"Post {post.Title} on {date} has been deleted. We appreciate your contribution and encourage you to review our guidelines before submitting future posts. Thank you!",
                 };
 
                 _context.notifications.Add(notification);
 
             }
-            _hubContext.Clients.All.SendAsync("UpdateNotifications");
+
             _context.postparticipants.RemoveRange(participants);
             _context.posts.Remove(post);
+            _hubContext.Clients.All.SendAsync("UpdateNotifications");
             try
             {
                 await _context.SaveChangesAsync();
