@@ -28,15 +28,13 @@ public class PostService : IPostService
 
             if (post.StartDate.Date == currentDateTime.Date && post.CloseDate.Date < currentDateTime.Date)
             {
-                // ถ้า StartDate เป็นวันเดียวกันกับปัจจุบัน แต่ CloseDate น้อยกว่าวันปัจจุบัน
                 if (post.StartTime >= currentDateTime.TimeOfDay)
                 {
-                    // ถ้า StartTime ไม่น้อยกว่าปัจจุบัน (โพสต์ยังไม่เริ่ม)
                     post.Status = "closejoin";
                 }
                 else
                 {
-                    post.Status = "inactive"; // โพสต์หมดเวลา
+                    post.Status = "inactive";
                 }
                 _context.posts.Update(post);
             }
