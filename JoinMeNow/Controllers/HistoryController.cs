@@ -8,16 +8,18 @@ namespace JoinMeNow.Controllers
     public class HistoryController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         private readonly IHubContext<PostHub> _hubContext;
+        private readonly IPostService _postService;
 
         public HistoryController(
             ApplicationDbContext context,
-            IHubContext<PostHub> hubContext
+            IHubContext<PostHub> hubContext,
+            IPostService postService
         )
         {
             _hubContext = hubContext;
             _context = context;
+            _postService = postService;
         }
         public IActionResult Index()
         {

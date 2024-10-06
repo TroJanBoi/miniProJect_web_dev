@@ -281,6 +281,7 @@ function displayDateData(postData, selectedDate) {
 
 async function loadDashboardData(selectedDate) {
     postData = await fetchPosts(selectedDate);
+    //console.log(postData);
     displayDateData(postData, selectedDate);
 }
 
@@ -295,7 +296,7 @@ function setupFilter() {
     const filterSelect = document.getElementById('filter');
     filterSelect.addEventListener('change', function () {
         currentFilter = this.value;
-        loadDashboardData(currentDate);
+        loadDashboardData(selectedDate);
     });
 }
 
